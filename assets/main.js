@@ -21,9 +21,6 @@ function toggleMenu(){
   btn.setAttribute('aria-expanded', isOpen);
 
   if(isOpen){
-    // Lock body scroll using position:fixed technique — more reliable
-    // on mobile browsers than overflow:hidden alone, and avoids
-    // containing-block quirks that can break position:fixed children.
     scrollY = window.scrollY || document.documentElement.scrollTop || 0;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollY}px`;
@@ -37,6 +34,21 @@ function toggleMenu(){
     document.body.style.right = '';
     document.body.style.width = '';
     window.scrollTo(0, scrollY);
+  }
+
+  // TEMP DIAGNOSTIC — shows real computed state on the device
+  const dbg = document.getElementById('debugInfo');
+  if(dbg && isOpen){
+    const cs = getComputedStyle(menu);
+    const rect = menu.getBoundingClientRect();
+    dbg.textContent =
+      'v5-debug | classList=' + menu.className +
+      ' | bg=' + cs.backgroundColor +
+      ' | opacity=' + cs.opacity +
+      ' | pos=' + cs.position +
+      ' | rect.h=' + Math.round(rect.height) +
+      ' | winH=' + window.innerHeight +
+      ' | DPR=' + window.devicePixelRatio;
   }
 }
 
