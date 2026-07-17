@@ -53,6 +53,15 @@ function toggleMenu(){
     };
     report('IMMEDIATE');
     setTimeout(() => report('AFTER-600ms'), 600);
+
+    // Force a repaint via a harmless 1px scroll nudge on the menu itself.
+    // If the visual glitch is a GPU compositing artifact (stale layer),
+    // this should force the browser to redraw the whole element cleanly.
+    setTimeout(() => {
+      menu.scrollTop = 1;
+      requestAnimationFrame(() => { menu.scrollTop = 0; });
+      report('AFTER-FORCED-REPAINT');
+    }, 900);
   }
 }
 
