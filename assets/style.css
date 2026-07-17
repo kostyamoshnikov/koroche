@@ -384,3 +384,107 @@ footer a:hover{color:var(--paper)}
 .skip-link:focus{left:12px;top:12px}
 
 a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+/* ==========================================================================
+   DOCUMENT PAGES (oferta, privacy, cookies, documents index)
+   ========================================================================== */
+.doc-head{
+  background:var(--ink);color:var(--paper);
+  padding:160px 0 60px;
+}
+.doc-head .eyebrow::before,.doc-head .eyebrow::after{color:var(--paper)}
+.doc-head h1{font-size:clamp(32px,6vw,64px);margin-top:16px;margin-bottom:14px}
+.doc-meta{font-family:'JetBrains Mono',monospace;font-size:13px;color:#B4B4AE}
+
+.doc-body{padding:70px 0 100px}
+.doc-body .wrap{max-width:840px}
+.doc-body p{font-size:16px;line-height:1.8;margin-bottom:18px;color:#1A1A1A}
+.doc-body h2{
+  font-size:clamp(20px,2.6vw,26px);
+  margin:44px 0 18px;
+  padding-top:4px;
+  border-top:2px solid var(--ink);
+  padding-top:20px;
+}
+.doc-body ul{margin:0 0 18px;padding-left:22px}
+.doc-body li{font-size:16px;line-height:1.8;margin-bottom:8px;color:#1A1A1A}
+.doc-body strong{font-weight:700}
+.doc-body a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+
+.doc-req{
+  background:var(--ink);color:var(--paper);
+  padding:30px 28px;margin-top:40px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;line-height:2.1;
+}
+.doc-req strong{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;display:block;margin-bottom:10px;letter-spacing:.02em}
+.doc-req a{color:var(--yellow)}
+
+.doc-seealso{
+  margin-top:28px;font-size:14px;color:var(--grey);
+  padding-top:20px;border-top:1px solid var(--grey-line);
+}
+.doc-seealso a{color:var(--blue);text-decoration:none;font-weight:600}
+.doc-seealso a:hover{text-decoration:underline}
+
+.doc-back{
+  display:inline-block;margin-top:34px;
+  font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;border-bottom:2px solid var(--blue);
+  padding-bottom:2px;
+}
+.doc-back:hover{color:var(--blue)}
+
+/* documents index list */
+.doc-list{padding:70px 0 100px}
+.doc-item{
+  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
+  padding:34px 0;border-bottom:1px solid var(--grey-line);
+}
+.doc-item:first-child{border-top:2px solid var(--ink)}
+.doc-item h2{font-size:clamp(19px,2.4vw,24px);margin-bottom:8px;border:none;padding:0;margin-top:0}
+.doc-item p{color:var(--grey);font-size:14px;max-width:56ch;margin-bottom:0}
+.doc-item-link{
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink);border:2px solid var(--ink);padding:13px 22px;white-space:nowrap;
+  text-decoration:none;transition:.25s ease;
+}
+.doc-item-link:hover{background:var(--ink);color:var(--paper)}
+@media(max-width:600px){
+  .doc-item{grid-template-columns:1fr;gap:16px}
+  .doc-item-link{justify-self:start}
+}
+
+/* cookie banner */
+#cookie-banner{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:500;
+  max-width:640px;margin:0 auto;
+  background:var(--ink);color:var(--paper);
+  padding:22px 24px;
+  border:2px solid var(--blue);
+  opacity:1;transition:opacity .4s ease,transform .4s ease;
+}
+#cookie-banner.hidden{opacity:0;transform:translateY(12px);pointer-events:none}
+#cookie-banner p{font-size:13px;line-height:1.6;margin-bottom:16px;color:#D8D8D2}
+#cookie-banner a{color:var(--yellow);text-decoration:underline}
+.cookie-actions{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-btn{
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;text-transform:uppercase;
+  padding:11px 18px;border:2px solid var(--paper);cursor:pointer;background:transparent;color:var(--paper);
+  transition:.2s ease;
+}
+.cookie-btn-accept{background:var(--blue);border-color:var(--blue)}
+.cookie-btn-accept:hover{background:var(--paper);color:var(--blue)}
+.cookie-btn-more:hover{background:var(--paper);color:var(--ink)}
+
+/* back to top */
+#back-to-top{
+  position:fixed;right:20px;bottom:20px;z-index:400;
+  width:46px;height:46px;
+  background:var(--ink);color:var(--paper);border:2px solid var(--ink);
+  font-size:18px;cursor:pointer;
+  opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:opacity .3s ease,transform .3s ease,background .25s ease;
+}
+#back-to-top.visible{opacity:1;pointer-events:auto;transform:none}
+#back-to-top:hover{background:var(--blue);border-color:var(--blue)}
+

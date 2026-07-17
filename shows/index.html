@@ -156,7 +156,7 @@
     <div class="requisites">
       Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
       ОГРН 1254000006644 · ИНН 4000027320 · © 2026 «Короче»<br>
-      <a href="https://aelita-production.ru/oferta">Оферта</a> · <a href="https://aelita-production.ru/privacy">Конфиденциальность</a>
+      <a href="../oferta/">Оферта</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a> · <a href="../documents/">Все документы</a>
     </div>
   </div>
 </footer>
@@ -172,6 +172,36 @@
   <div class="m-menu-foot">{короче} · неорганизованная танцевальная компания</div>
 </div>
 
+<!-- Cookie Banner -->
+<div id="cookie-banner">
+  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-btn-more" onclick="window.location.href='../cookies/'">Подробнее</button>
+    <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
+  </div>
+</div>
+<script>
+  (function(){
+    if(localStorage.getItem('cookies_accepted')){
+      var b=document.getElementById('cookie-banner');
+      if(b) b.style.display='none';
+    }
+  })();
+  function acceptCookies(){
+    localStorage.setItem('cookies_accepted','1');
+    var b=document.getElementById('cookie-banner');
+    if(b){b.classList.add('hidden');setTimeout(function(){b.style.display='none'},400);}
+  }
+</script>
+<!-- /Cookie Banner -->
+
+<button id="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+  window.addEventListener('scroll',()=>{
+    const btn=document.getElementById('back-to-top');
+    if(btn) btn.classList.toggle('visible', window.scrollY > 400);
+  });
+</script>
 <script src="../assets/main.js?v=9"></script>
 </body>
 </html>

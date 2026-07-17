@@ -45,3 +45,25 @@ document.addEventListener('keydown', e => {
     }
   }
 });
+
+// Cookie banner
+(function(){
+  if(localStorage.getItem('cookies_accepted')){
+    const b = document.getElementById('cookie-banner');
+    if(b) b.style.display = 'none';
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookies_accepted', '1');
+  const b = document.getElementById('cookie-banner');
+  if(b){
+    b.classList.add('hidden');
+    setTimeout(() => { b.style.display = 'none'; }, 400);
+  }
+}
+
+// Back to top button
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('back-to-top');
+  if(btn) btn.classList.toggle('visible', window.scrollY > 400);
+});
