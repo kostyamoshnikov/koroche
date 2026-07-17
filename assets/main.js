@@ -10,6 +10,8 @@ setTimeout(() => {
 }, 900);
 
 // Mobile menu
+let scrollY = 0;
+
 function toggleMenu(){
   const btn = document.querySelector('.burger');
   const menu = document.getElementById('mMenu');
@@ -17,16 +19,33 @@ function toggleMenu(){
   const isOpen = menu.classList.toggle('open');
   btn.classList.toggle('open', isOpen);
   btn.setAttribute('aria-expanded', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : '';
+
+  if(isOpen){
+    // Lock body scroll using position:fixed technique — more reliable
+    // on mobile browsers than overflow:hidden alone, and avoids
+    // containing-block quirks that can break position:fixed children.
+    scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+  } else {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+  }
 }
+
 document.addEventListener('keydown', e => {
   if(e.key === 'Escape'){
     const menu = document.getElementById('mMenu');
     const btn = document.querySelector('.burger');
     if(menu && menu.classList.contains('open')){
-      menu.classList.remove('open');
-      btn && btn.classList.remove('open');
-      document.body.style.overflow = '';
+      toggleMenu();
     }
   }
 });
