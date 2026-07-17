@@ -36,19 +36,23 @@ function toggleMenu(){
     window.scrollTo(0, scrollY);
   }
 
-  // TEMP DIAGNOSTIC — shows real computed state on the device
+  // TEMP DIAGNOSTIC — measures state both immediately and after transition ends
   const dbg = document.getElementById('debugInfo');
   if(dbg && isOpen){
-    const cs = getComputedStyle(menu);
-    const rect = menu.getBoundingClientRect();
-    dbg.textContent =
-      'v5-debug | classList=' + menu.className +
-      ' | bg=' + cs.backgroundColor +
-      ' | opacity=' + cs.opacity +
-      ' | pos=' + cs.position +
-      ' | rect.h=' + Math.round(rect.height) +
-      ' | winH=' + window.innerHeight +
-      ' | DPR=' + window.devicePixelRatio;
+    const report = (label) => {
+      const cs = getComputedStyle(menu);
+      const rect = menu.getBoundingClientRect();
+      dbg.textContent =
+        label + ' | classList=' + menu.className +
+        ' | bg=' + cs.backgroundColor +
+        ' | opacity=' + cs.opacity +
+        ' | pos=' + cs.position +
+        ' | rect.h=' + Math.round(rect.height) +
+        ' | winH=' + window.innerHeight +
+        ' | DPR=' + window.devicePixelRatio;
+    };
+    report('IMMEDIATE');
+    setTimeout(() => report('AFTER-600ms'), 600);
   }
 }
 
