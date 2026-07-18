@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Документы — {короче}</title>
-<meta name="description" content="Правовая информация: оферта, политика обработки персональных данных, соглашение об использовании cookies. Танцевальная компания «Короче», ООО «АЭЛИТА ПРОДАКШЕН».">
-<meta name="robots" content="noindex">
+<title>Послушайте! — {короче}</title>
+<meta name="description" content="«Послушайте!» — интерактивный танцевальный спектакль Юлии Бычковой и компании «Короче». Путешествие по просторам личных чувств, эмоций и наблюдений. 12+">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -19,7 +18,7 @@
     <div class="nav-links">
       <a href="../tickets/">Афиша</a>
       <a href="../index.html#about">Компания</a>
-      <a href="../index.html#repertoire">Репертуар</a>
+      <a href="../index.html#repertoire" class="active">Репертуар</a>
       <a href="../shows/">Археология человеческого</a>
       <a href="../bychkova/">Бычкова</a>
       <a href="../contacts/">Контакты</a>
@@ -31,56 +30,70 @@
 </nav>
 
 <main id="main">
-<div class="doc-head">
-  <div class="wrap">
-    <p class="eyebrow">правовая информация</p>
-    <h1>Документы</h1>
-    <p class="doc-meta">ООО «АЭЛИТА ПРОДАКШЕН»</p>
+<div class="hero" style="min-height:64svh;padding-top:150px;padding-bottom:40px">
+  <div class="hero-mark" aria-hidden="true">{ }</div>
+  <div class="wrap hero-content">
+    <p class="eyebrow hero-eyebrow">Танцевальный спектакль <span class="age">12+</span></p>
+    <h1 style="font-size:clamp(44px,9vw,110px)">Послуш<span class="bk">а</span>йте!</h1>
+    <p class="dir">Режиссёр — <strong><a href="../bychkova/">Юлия Бычкова</a></strong></p>
+    <div class="hero-btns">
+      <a class="btn btn-solid" href="https://t.me/koroche_dance" target="_blank" rel="noopener">Узнать о новых датах</a>
+      <a class="btn btn-line" href="../index.html#repertoire">Весь репертуар</a>
+    </div>
   </div>
 </div>
 
-<div class="doc-list">
+<section id="about">
   <div class="wrap">
-    <div class="doc-item">
-      <div>
-        <h2>Договор публичной оферты</h2>
-        <p>Условия оказания услуг, порядок оплаты и возврата, права и обязанности сторон. Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../oferta/">Открыть</a>
+    <div class="sec-head reveal">
+      <h2>О проекте</h2>
+      <span class="sec-num mono">{ 01 / ЗАМЫСЕЛ }</span>
     </div>
-    <div class="doc-item">
-      <div>
-        <h2>Политика обработки персональных данных</h2>
-        <p>Порядок сбора, хранения и защиты персональных данных пользователей сайта. Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../privacy/">Открыть</a>
-    </div>
-    <div class="doc-item">
-      <div>
-        <h2>Соглашение об использовании cookies</h2>
-        <p>Информация о файлах cookies, используемых на сайте танцевальной компании «Короче». Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../cookies/">Открыть</a>
-    </div>
-    <div class="doc-item">
-      <div>
-        <h2>Правила использования Telegram-бота</h2>
-        <p>Условия использования бота KOROCHE DANCE COMPANY (@koroche_dance_bot). Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../bot/">Открыть</a>
-    </div>
-
-    <div class="doc-req">
-      <strong>Реквизиты</strong>
-      ООО «АЭЛИТА ПРОДАКШЕН»<br>
-      ИНН 4000027320 · КПП 400001001 · ОГРН 1254000006644<br>
-      Юридический адрес: 248016, Россия, Калужская обл., г. Калуга, ул. Ленина, д. 51<br>
-      Email: <a href="mailto:aelita.production@yandex.ru">aelita.production@yandex.ru</a>
-    </div>
-
-    <a class="doc-back" href="../index.html">← На главную</a>
+    <p class="reveal" style="font-size:19px;color:#2A2824;max-width:64ch;line-height:1.75">Интерактивное путешествие по просторам личных чувств, эмоций и наблюдений. Танцевальный спектакль Юлии Бычковой приглашает зрителя стать участником — не наблюдать со стороны, а услышать себя вместе с исполнителями.</p>
   </div>
-</div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Ближайшие показы</h2>
+      <span class="sec-num mono grey">{ 02 / АФИША }</span>
+    </div>
+    <div class="no-shows reveal" style="background:#141414;border-color:rgba(250,250,247,.15)">
+      <p style="color:#B4B4AE">Ближайших показов пока нет. Подпишитесь — сообщим о новых датах первыми.</p>
+      <a class="btn btn-line" href="https://t.me/koroche_dance" target="_blank" rel="noopener" style="border-color:var(--paper);color:var(--paper)">Узнать о новых датах</a>
+    </div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Смотреть</h2>
+      <span class="sec-num mono">{ 03 / ТИЗЕР }</span>
+    </div>
+    <div class="reveal" style="max-width:760px">
+      <div class="video-wrap">
+        <iframe src="https://vkvideo.ru/video_ext.php?oid=-229246987&id=456239071&hd=2&js_api=1" title="Тизер спектакля «Послушайте»" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <p class="video-label">Тизер спектакля «Послушайте»</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Другие спектакли</h2>
+      <span class="sec-num mono grey">{ РЕПЕРТУАР }</span>
+    </div>
+    <div class="other-grid reveal">
+      <a class="other-card" href="../stories/"><span class="tag">Пластический спектакль</span><h3>Сюжеты. О земном и небесном</h3><p>Гастрольный спектакль, Новая сцена Александринского театра. 12+</p></a>
+      <a class="other-card" href="../instruction/"><span class="tag">Совместный проект</span><h3>Инструкция для начинающих странников</h3><p>Совместный проект «Короче» и «Забавы». 12+</p></a>
+      <a class="other-card" href="../shows/"><span class="tag">Премьера состоялась</span><h3>Археология человеческого</h3><p>Вечер малых форм современного танца. 12+</p></a>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
@@ -116,7 +129,7 @@
     <div class="requisites">
       Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
       ОГРН 1254000006644 · ИНН 4000027320 · © 2026 «Короче»<br>
-      <a href="../oferta/">Оферта</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a>
+      <a href="../oferta/">Оферта</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a> · <a href="../documents/">Все документы</a>
     </div>
   </div>
 </footer>
@@ -141,7 +154,6 @@
     <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
   </div>
 </div>
-
 <button id="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script src="../assets/main.js?v=9"></script>

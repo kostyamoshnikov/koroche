@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Инструкция для начинающих странников — {короче}</title>
+<meta name="description" content="«Инструкция для начинающих странников» — совместный проект танцевальных компаний «Короче» и «Забава». Спектакль о пути, выборе и том, что значит начать. 12+">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css?v=9">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="../index.html">{<span class="bk">короче</span>}</a>
+    <div class="nav-links">
+      <a href="../tickets/">Афиша</a>
+      <a href="../index.html#about">Компания</a>
+      <a href="../index.html#repertoire" class="active">Репертуар</a>
+      <a href="../shows/">Археология человеческого</a>
+      <a href="../bychkova/">Бычкова</a>
+      <a href="../contacts/">Контакты</a>
+    </div>
+    <button class="burger" aria-label="Меню" aria-expanded="false" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<main id="main">
+<div class="hero" style="min-height:64svh;padding-top:150px;padding-bottom:40px">
+  <div class="hero-mark" aria-hidden="true">{ }</div>
+  <div class="wrap hero-content">
+    <p class="eyebrow hero-eyebrow">Танцевальный спектакль <span class="age">12+</span></p>
+    <h1 style="font-size:clamp(34px,6.4vw,80px)">Инстр<span class="bk">у</span>кция для начинающих странников</h1>
+    <p class="dir">Режиссёры — <strong><a href="../bychkova/">Юлия Бычкова</a></strong> и <strong>Елена Иноземцева</strong></p>
+    <p class="note">Совместный проект танцевальных компаний «Короче» и «Забава» (Калуга).</p>
+    <div class="hero-btns">
+      <a class="btn btn-solid" href="https://t.me/koroche_dance" target="_blank" rel="noopener">Узнать о новых датах</a>
+      <a class="btn btn-line" href="../index.html#repertoire">Весь репертуар</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>О проекте</h2>
+      <span class="sec-num mono">{ 01 / ЗАМЫСЕЛ }</span>
+    </div>
+    <p class="reveal" style="font-size:19px;color:#2A2824;max-width:64ch;line-height:1.75">Совместный проект танцевальных компаний «Короче» и «Забава» — флагмана танцевальной жизни Калуги. Спектакль о пути, выборе и том, что значит начать — для тех, кто в пути, кто уже прошёл часть дороги, и тех, кто только собирается идти. Постановка сделана в соавторстве режиссёров Юлии Бычковой («Короче») и Елены Иноземцевой («Забава»).</p>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Отзывы</h2>
+      <span class="sec-num mono grey">{ 02 / ЗРИТЕЛИ }</span>
+    </div>
+    <div class="reviews reveal">
+      <div class="review">
+        <span class="review-mark">"</span>
+        <p class="review-text">Второй раз смотрим, как в первый. Режиссёру удалось довести до слёз очень многих зрителей. И, как всегда, долго не отпускает послевкусие.</p>
+        <p class="review-author">Светлана Вартанова</p>
+      </div>
+      <div class="review">
+        <span class="review-mark">"</span>
+        <p class="review-text">Мне нравится творчество Юлии Бычковой — оно глубокое и со смыслом. В этот раз для меня всё сложилось: музыка, танец, свет, костюмы, декорации, идея.</p>
+        <p class="review-author">Луиза Миронова</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt" style="padding-top:0">
+  <div class="wrap">
+    <div class="no-shows reveal" style="background:#141414;border-color:rgba(250,250,247,.15)">
+      <p style="color:#B4B4AE">Ближайших показов пока нет. Подпишитесь — сообщим о новых датах первыми.</p>
+      <a class="btn btn-line" href="https://t.me/koroche_dance" target="_blank" rel="noopener" style="border-color:var(--paper);color:var(--paper)">Узнать о новых датах</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Другие спектакли</h2>
+      <span class="sec-num mono">{ РЕПЕРТУАР }</span>
+    </div>
+    <div class="other-grid reveal">
+      <a class="other-card" href="../listen/"><span class="tag">Танцевальный спектакль</span><h3>Послушайте!</h3><p>Интерактивное путешествие по просторам личных чувств. 12+</p></a>
+      <a class="other-card" href="../stories/"><span class="tag">Пластический спектакль</span><h3>Сюжеты. О земном и небесном</h3><p>Новая сцена Александринского театра. 12+</p></a>
+      <a class="other-card" href="../shows/"><span class="tag">Премьера состоялась</span><h3>Археология человеческого</h3><p>Вечер малых форм современного танца. 12+</p></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="../index.html">{<span class="bk">короче</span>}</a>
+        <p class="foot-desc">Неорганизованная танцевальная компания. Contemporary dance с 2020 года.</p>
+        <a href="mailto:aelita.production@yandex.ru">aelita.production@yandex.ru</a>
+        <a href="tel:+79605151690">+7 960 515-16-90</a>
+      </div>
+      <div>
+        <h4>Компания</h4>
+        <a href="../index.html#about">О компании</a>
+        <a href="../index.html#repertoire">Репертуар</a>
+        <a href="../bychkova/">Юлия Бычкова</a>
+        <a href="../contacts/">Контакты</a>
+      </div>
+      <div>
+        <h4>Археология человеческого</h4>
+        <a href="../gender/">Гендер</a>
+        <a href="../ierarhiya/">Иерархия</a>
+        <a href="../ritual/">Ритуал</a>
+        <a href="../arhetip/">Архетип</a>
+      </div>
+      <div>
+        <h4>Соцсети</h4>
+        <a href="https://vk.com/koroche_dance" target="_blank" rel="noopener">ВКонтакте — @koroche_dance</a>
+        <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
+        <a href="https://aelita-production.ru" target="_blank" rel="noopener">Партнёр: AELITA PRODUCTION</a>
+      </div>
+    </div>
+    <div class="requisites">
+      Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
+      ОГРН 1254000006644 · ИНН 4000027320 · © 2026 «Короче»<br>
+      <a href="../oferta/">Оферта</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a> · <a href="../documents/">Все документы</a>
+    </div>
+  </div>
+</footer>
+
+<div class="m-menu" id="mMenu" role="dialog" aria-modal="true" aria-label="Навигация">
+  <nav>
+    <a href="../tickets/" onclick="toggleMenu()">Афиша</a>
+    <a href="../index.html#about" onclick="toggleMenu()">Компания</a>
+    <a href="../index.html#repertoire" onclick="toggleMenu()">Репертуар</a>
+    <a href="../shows/" onclick="toggleMenu()">Археология человеческого</a>
+    <a href="../bychkova/" onclick="toggleMenu()">Бычкова</a>
+    <a href="../contacts/" onclick="toggleMenu()">Контакты</a>
+  </nav>
+  <div class="m-menu-foot">{короче} · неорганизованная танцевальная компания</div>
+</div>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner">
+  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
+  <div class="cookie-actions">
+    <button class="cookie-btn cookie-btn-more" onclick="window.location.href='../cookies/'">Подробнее</button>
+    <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
+  </div>
+</div>
+<button id="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script src="../assets/main.js?v=9"></script>
+</body>
+</html>

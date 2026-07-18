@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Документы — {короче}</title>
-<meta name="description" content="Правовая информация: оферта, политика обработки персональных данных, соглашение об использовании cookies. Танцевальная компания «Короче», ООО «АЭЛИТА ПРОДАКШЕН».">
-<meta name="robots" content="noindex">
+<title>Афиша и билеты — {короче}</title>
+<meta name="description" content="Афиша показов танцевальной компании «Короче». Подпишитесь, чтобы узнать о новых датах первыми.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,7 +16,7 @@
   <div class="nav-in">
     <a class="logo" href="../index.html">{<span class="bk">короче</span>}</a>
     <div class="nav-links">
-      <a href="../tickets/">Афиша</a>
+      <a href="../tickets/" class="active">Афиша</a>
       <a href="../index.html#about">Компания</a>
       <a href="../index.html#repertoire">Репертуар</a>
       <a href="../shows/">Археология человеческого</a>
@@ -31,56 +30,57 @@
 </nav>
 
 <main id="main">
-<div class="doc-head">
-  <div class="wrap">
-    <p class="eyebrow">правовая информация</p>
-    <h1>Документы</h1>
-    <p class="doc-meta">ООО «АЭЛИТА ПРОДАКШЕН»</p>
+<div class="hero" style="min-height:44svh;padding-top:150px;padding-bottom:20px">
+  <div class="hero-mark" aria-hidden="true">{ }</div>
+  <div class="wrap hero-content">
+    <p class="eyebrow hero-eyebrow">расписание</p>
+    <h1 style="font-size:clamp(42px,8vw,100px)">Аф<span class="bk">и</span>ша и билеты</h1>
   </div>
 </div>
 
-<div class="doc-list">
+<section style="padding-top:20px">
   <div class="wrap">
-    <div class="doc-item">
-      <div>
-        <h2>Договор публичной оферты</h2>
-        <p>Условия оказания услуг, порядок оплаты и возврата, права и обязанности сторон. Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../oferta/">Открыть</a>
-    </div>
-    <div class="doc-item">
-      <div>
-        <h2>Политика обработки персональных данных</h2>
-        <p>Порядок сбора, хранения и защиты персональных данных пользователей сайта. Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../privacy/">Открыть</a>
-    </div>
-    <div class="doc-item">
-      <div>
-        <h2>Соглашение об использовании cookies</h2>
-        <p>Информация о файлах cookies, используемых на сайте танцевальной компании «Короче». Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../cookies/">Открыть</a>
-    </div>
-    <div class="doc-item">
-      <div>
-        <h2>Правила использования Telegram-бота</h2>
-        <p>Условия использования бота KOROCHE DANCE COMPANY (@koroche_dance_bot). Редакция от 17.07.2026.</p>
-      </div>
-      <a class="doc-item-link" href="../bot/">Открыть</a>
+    <div class="filters reveal">
+      <button class="filter-btn active" onclick="filterEvents('all',this)">Все города</button>
+      <button class="filter-btn" onclick="filterEvents('kaluga',this)">Калуга</button>
+      <button class="filter-btn" onclick="filterEvents('spb',this)">Санкт-Петербург</button>
     </div>
 
-    <div class="doc-req">
-      <strong>Реквизиты</strong>
-      ООО «АЭЛИТА ПРОДАКШЕН»<br>
-      ИНН 4000027320 · КПП 400001001 · ОГРН 1254000006644<br>
-      Юридический адрес: 248016, Россия, Калужская обл., г. Калуга, ул. Ленина, д. 51<br>
-      Email: <a href="mailto:aelita.production@yandex.ru">aelita.production@yandex.ru</a>
+    <div id="events-list" class="reveal">
+      <div class="no-events">
+        <p>Ближайших показов пока нет. Премьера «Археология человеческого» уже состоялась — следующие даты объявим здесь и в соцсетях компании.</p>
+        <a class="btn btn-solid" href="https://t.me/koroche_dance" target="_blank" rel="noopener">Подписаться в Telegram</a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <a class="doc-back" href="../index.html">← На главную</a>
+<div class="notify" id="subscribe">
+  <div class="wrap reveal">
+    <p class="eyebrow">не пропустить</p>
+    <h2>Узнайте о новых датах первыми</h2>
+    <p>Оставьте почту — напишем, как только объявим показ.</p>
+    <div class="sub-form">
+      <input type="email" id="subEmail" placeholder="Ваша почта" aria-label="Электронная почта">
+      <button onclick="subscribeEmail()">Подписаться</button>
+    </div>
+    <p class="sub-ok" id="subOk">Готово — напишем о новых датах.</p>
   </div>
 </div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Репертуар</h2>
+      <span class="sec-num mono">{ ЧТО ПОСМОТРЕТЬ }</span>
+    </div>
+    <div class="other-grid reveal">
+      <a class="other-card" href="../shows/"><span class="tag">Премьера состоялась</span><h3>Археология человеческого</h3><p>Вечер малых форм современного танца. 12+</p></a>
+      <a class="other-card" href="../stories/"><span class="tag">Пластический спектакль</span><h3>Сюжеты. О земном и небесном</h3><p>Новая сцена Александринского театра. 12+</p></a>
+      <a class="other-card" href="../listen/"><span class="tag">Танцевальный спектакль</span><h3>Послушайте!</h3><p>Интерактивное путешествие по просторам личных чувств. 12+</p></a>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
@@ -116,7 +116,7 @@
     <div class="requisites">
       Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
       ОГРН 1254000006644 · ИНН 4000027320 · © 2026 «Короче»<br>
-      <a href="../oferta/">Оферта</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a>
+      <a href="../oferta/">Оферта</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a> · <a href="../documents/">Все документы</a>
     </div>
   </div>
 </footer>
@@ -141,8 +141,25 @@
     <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
   </div>
 </div>
-
 <button id="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  function filterEvents(city, btn){
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.event').forEach(e => {
+      e.style.display = (city === 'all' || e.dataset.city === city) ? 'grid' : 'none';
+    });
+  }
+  function subscribeEmail(){
+    const input = document.getElementById('subEmail');
+    const v = input.value.trim();
+    if(!v || !v.includes('@')) return;
+    const ok = document.getElementById('subOk');
+    if(ok) ok.style.display = 'block';
+    input.value = '';
+  }
+</script>
 
 <script src="../assets/main.js?v=9"></script>
 </body>
