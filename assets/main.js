@@ -62,8 +62,21 @@ function acceptCookies(){
   }
 }
 
-// Back to top button
+// Back to top button + Telegram widget (единый scroll listener)
 window.addEventListener('scroll', () => {
   const btn = document.getElementById('back-to-top');
   if(btn) btn.classList.toggle('visible', window.scrollY > 400);
+
+  const tgWidget = document.getElementById('tg-widget');
+  if(tgWidget && window.scrollY > 400 && !tgWidget.classList.contains('visible')){
+    tgWidget.classList.add('visible');
+    const bubble = document.getElementById('tg-bubble');
+    if(bubble && !bubble.dataset.shown){
+      bubble.dataset.shown = '1';
+      setTimeout(() => {
+        bubble.classList.add('visible');
+        setTimeout(() => { bubble.classList.remove('visible'); }, 4000);
+      }, 1000);
+    }
+  }
 });
