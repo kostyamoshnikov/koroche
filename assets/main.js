@@ -90,3 +90,58 @@ function toggleTeaserSound(btn) {
   const label = btn.querySelector('span');
   if (label) label.textContent = isOn ? 'Без звука' : 'Звук';
 }
+
+// === Отслеживание конверсионных действий ===
+// Событие идёт и в Яндекс.Метрику (reachGoal), и в dataLayer — чтобы GTM/GA4
+// могли подхватить его без создания целей в интерфейсе заранее.
+(function () {
+  function track(goal, params) {
+    params = params || {};
+    if (window.ym) {
+      try { window.ym(110846274, 'reachGoal', goal, params); } catch (e) {}
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: goal }, params));
+  }
+
+  // Клики по ссылкам: телефон, почта, Telegram-канал/бот, переход на билеты
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+
+    if (href.indexOf('tel:') === 0) {
+      track('phone_click', { link_url: href });
+      return;
+    }
+    if (href.indexOf('mailto:') === 0) {
+      track('email_click', { link_url: href });
+      return;
+    }
+    if (href.indexOf('t.me/') !== -1) {
+      track(href.indexOf('_bot') !== -1 ? 'telegram_bot_click' : 'telegram_channel_click', { link_url: href });
+      return;
+    }
+    if (/\/tickets\/?($|[?#])/.test(href)) {
+      track('tickets_page_click', { link_url: href });
+    }
+  }, true);
+
+  // Клик по кнопке подписки на почту на странице /tickets/
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('[onclick^="subscribeEmail"]')) {
+      track('lead_email_subscribe_click');
+    }
+  }, true);
+
+  // Включение звука на hero-видео — сигнал вовлечённости
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('#teaser-sound-btn, .teaser-sound-btn');
+    if (!btn) return;
+    setTimeout(function () {
+      if (btn.classList.contains('on')) {
+        track('video_sound_on', { page: location.pathname });
+      }
+    }, 0);
+  }, true);
+})();
