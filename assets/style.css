@@ -512,6 +512,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
 .other-card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
 .other-card h3{font-family:'Archivo Black',sans-serif;font-size:19px;text-transform:uppercase;font-weight:900;margin:12px 0 8px;color:var(--ink)}
 .other-card p{color:var(--grey);font-size:13px}
+@media(max-width:900px){.other-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.other-grid{grid-template-columns:1fr}}
 
 /* ---------- BIO CAREER (Сачков и другие резиденты) ---------- */
@@ -533,6 +534,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
 .work-card .tag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--blue)}
 .work-card h3{font-family:'Archivo Black',sans-serif;font-size:19px;text-transform:uppercase;font-weight:900;margin:12px 0 8px;color:var(--ink)}
 .work-card p{color:var(--grey);font-size:13px}
+@media(max-width:900px){.works-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:760px){.works-grid{grid-template-columns:1fr}}
 
 /* ---------- TICKETS / АФИША ---------- */

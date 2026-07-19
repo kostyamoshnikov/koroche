@@ -53,6 +53,15 @@ document.addEventListener('keydown', e => {
     if(b) b.style.display = 'none';
   }
 })();
+
+// Пока баннер cookies не принят, он занимает нижнюю часть экрана и визуально
+// перекрывает Telegram-виджет и кнопку «наверх» — не даём им появляться поверх
+// него, а сразу показываем после принятия (см. updateFixedWidgets ниже).
+function isCookieBannerOpen(){
+  const b = document.getElementById('cookie-banner');
+  return !!(b && b.style.display !== 'none' && !b.classList.contains('hidden'));
+}
+
 function acceptCookies(){
   localStorage.setItem('cookies_accepted', '1');
   const b = document.getElementById('cookie-banner');
@@ -60,26 +69,37 @@ function acceptCookies(){
     b.classList.add('hidden');
     setTimeout(() => { b.style.display = 'none'; }, 400);
   }
+  updateFixedWidgets();
 }
 
 // Back to top button + Telegram widget (единый scroll listener)
-window.addEventListener('scroll', () => {
+function updateFixedWidgets(){
+  const pastThreshold = window.scrollY > 400;
+  const bannerOpen = isCookieBannerOpen();
+
   const btn = document.getElementById('back-to-top');
-  if(btn) btn.classList.toggle('visible', window.scrollY > 400);
+  if(btn) btn.classList.toggle('visible', pastThreshold && !bannerOpen);
 
   const tgWidget = document.getElementById('tg-widget');
-  if(tgWidget && window.scrollY > 400 && !tgWidget.classList.contains('visible')){
-    tgWidget.classList.add('visible');
-    const bubble = document.getElementById('tg-bubble');
-    if(bubble && !bubble.dataset.shown){
-      bubble.dataset.shown = '1';
-      setTimeout(() => {
-        bubble.classList.add('visible');
-        setTimeout(() => { bubble.classList.remove('visible'); }, 4000);
-      }, 1000);
+  if(tgWidget){
+    if(pastThreshold && !bannerOpen){
+      if(!tgWidget.classList.contains('visible')){
+        tgWidget.classList.add('visible');
+        const bubble = document.getElementById('tg-bubble');
+        if(bubble && !bubble.dataset.shown){
+          bubble.dataset.shown = '1';
+          setTimeout(() => {
+            bubble.classList.add('visible');
+            setTimeout(() => { bubble.classList.remove('visible'); }, 4000);
+          }, 1000);
+        }
+      }
+    } else {
+      tgWidget.classList.remove('visible');
     }
   }
-});
+}
+window.addEventListener('scroll', updateFixedWidgets);
 
 // Переключатель звука для hero-видео (используется на страницах спектаклей с видео-фоном)
 function toggleTeaserSound(btn) {
