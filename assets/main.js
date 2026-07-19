@@ -80,3 +80,13 @@ window.addEventListener('scroll', () => {
     }
   }
 });
+
+// Переключатель звука для hero-видео (используется на страницах спектаклей с видео-фоном)
+function toggleTeaserSound(btn) {
+  const video = document.getElementById('hero-video');
+  if (!video) return;
+  const isOn = btn.classList.toggle('on');
+  video.muted = !isOn;
+  const label = btn.querySelector('span');
+  if (label) label.textContent = isOn ? 'Без звука' : 'Звук';
+}
