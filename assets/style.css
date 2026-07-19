@@ -56,12 +56,10 @@ a{color:inherit}
   letter-spacing:.05em;
   text-transform:uppercase;
   color:var(--blue);
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
+  display:inline;
 }
-.eyebrow::before{content:"{";color:var(--ink)}
-.eyebrow::after{content:"}";color:var(--ink)}
+.eyebrow::before{content:"{";color:var(--ink);margin-right:6px}
+.eyebrow::after{content:"}";color:var(--ink);margin-left:6px}
 
 /* ---------- bracket motif ---------- */
 .bracket{color:var(--blue)}
