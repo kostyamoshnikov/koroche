@@ -56,7 +56,7 @@ a{color:inherit}
   letter-spacing:.05em;
   text-transform:uppercase;
   color:var(--blue);
-  display:inline;
+  display:inline-block;
 }
 .eyebrow::before{content:"{";color:var(--ink);margin-right:6px}
 .eyebrow::after{content:"}";color:var(--ink);margin-left:6px}
