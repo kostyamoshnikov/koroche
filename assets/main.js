@@ -72,7 +72,7 @@ function acceptCookies(){
   updateFixedWidgets();
 }
 
-// Back to top button + Telegram widget (единый scroll listener)
+// Back to top button + Telegram widget + мобильный CTA-бар (единый scroll listener)
 function updateFixedWidgets(){
   const pastThreshold = window.scrollY > 400;
   const bannerOpen = isCookieBannerOpen();
@@ -98,8 +98,23 @@ function updateFixedWidgets(){
       tgWidget.classList.remove('visible');
     }
   }
+
+  // Мобильный CTA-бар — прячем, пока cookies не приняты, и когда рядом
+  // уже видна hero-секция страницы (там есть своя кнопка) или футер
+  const ctaBar = document.getElementById('mob-cta');
+  if(ctaBar){
+    const cookiesAccepted = !!localStorage.getItem('cookies_accepted');
+    let nearOwnCta = false;
+    document.querySelectorAll('.hero, .piece-hero, footer').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0) nearOwnCta = true;
+    });
+    ctaBar.classList.toggle('hidden', !cookiesAccepted || bannerOpen || nearOwnCta);
+  }
 }
 window.addEventListener('scroll', updateFixedWidgets);
+window.addEventListener('resize', updateFixedWidgets);
+updateFixedWidgets();
 
 // Переключатель звука для hero-видео (используется на страницах спектаклей с видео-фоном)
 function toggleTeaserSound(btn) {
@@ -111,57 +126,13 @@ function toggleTeaserSound(btn) {
   if (label) label.textContent = isOn ? 'Без звука' : 'Звук';
 }
 
-// === Отслеживание конверсионных действий ===
-// Событие идёт и в Яндекс.Метрику (reachGoal), и в dataLayer — чтобы GTM/GA4
-// могли подхватить его без создания целей в интерфейсе заранее.
-(function () {
-  function track(goal, params) {
-    params = params || {};
-    if (window.ym) {
-      try { window.ym(110846274, 'reachGoal', goal, params); } catch (e) {}
-    }
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(Object.assign({ event: goal }, params));
-  }
+// Отслеживание конверсионных действий вынесено в assets/analytics-events.js —
+// подключается отдельным тегом на каждой странице, правки применяются сразу
+// везде без необходимости редактировать main.js.
 
-  // Клики по ссылкам: телефон, почта, Telegram-канал/бот, переход на билеты
-  document.addEventListener('click', function (e) {
-    const a = e.target.closest('a');
-    if (!a) return;
-    const href = a.getAttribute('href') || '';
-
-    if (href.indexOf('tel:') === 0) {
-      track('phone_click', { link_url: href });
-      return;
-    }
-    if (href.indexOf('mailto:') === 0) {
-      track('email_click', { link_url: href });
-      return;
-    }
-    if (href.indexOf('t.me/') !== -1) {
-      track(href.indexOf('_bot') !== -1 ? 'telegram_bot_click' : 'telegram_channel_click', { link_url: href });
-      return;
-    }
-    if (/\/tickets\/?($|[?#])/.test(href)) {
-      track('tickets_page_click', { link_url: href });
-    }
-  }, true);
-
-  // Клик по кнопке подписки на почту на странице /tickets/
-  document.addEventListener('click', function (e) {
-    if (e.target.closest('[onclick^="subscribeEmail"]')) {
-      track('lead_email_subscribe_click');
-    }
-  }, true);
-
-  // Включение звука на hero-видео — сигнал вовлечённости
-  document.addEventListener('click', function (e) {
-    const btn = e.target.closest('#teaser-sound-btn, .teaser-sound-btn');
-    if (!btn) return;
-    setTimeout(function () {
-      if (btn.classList.contains('on')) {
-        track('video_sound_on', { page: location.pathname });
-      }
-    }, 0);
-  }, true);
-})();
+// Service Worker — офлайн-доступ и кэширование основных страниц (PWA)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}

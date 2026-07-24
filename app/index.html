@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Приложение — {короче}</title>
+<meta name="description" content="Установите приложение «Короче» на телефон — афиша, спектакли и новости прямо на экране.">
+<meta property="og:title" content="Приложение {короче}">
+<meta property="og:description" content="Установите приложение — афиша и спектакли всегда под рукой.">
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="короче">
+<meta name="theme-color" content="#0A0A0A">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0A0A;--paper:#FAFAF7;--blue:#1E2EFF;--yellow:#F4E409;--grey:#8C8C86;--grey-line:rgba(10,10,10,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%;overflow-x:hidden}
+body{background:var(--ink);color:var(--paper);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:560px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+nav{padding:20px 0;border-bottom:1px solid rgba(250,250,247,.1)}
+.nav-in{max-width:560px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;font-size:18px}
+.logo .bk{color:var(--yellow)}
+.nav-back{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);transition:color .25s}
+.nav-back:hover{color:var(--paper)}
+
+/* Hero */
+.hero{padding:56px 0 40px;text-align:center}
+.app-icon{width:112px;height:112px;border-radius:24px;margin:0 auto 32px;overflow:hidden;box-shadow:0 8px 40px rgba(244,228,9,.15)}
+.app-icon img{width:100%;height:100%;object-fit:cover}
+.eyebrow{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--yellow);margin-bottom:16px}
+.eyebrow::before{content:"{";margin-right:4px}
+.eyebrow::after{content:"}";margin-left:4px}
+h1{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(28px,7vw,40px);letter-spacing:-.01em;line-height:.95;margin-bottom:16px}
+.subtitle{color:var(--grey);font-size:15px;max-width:34ch;margin:0 auto 36px}
+
+/* Кнопка установки */
+.install-btn{display:inline-flex;align-items:center;gap:10px;background:var(--yellow);color:var(--ink);font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:500;font-size:12px;letter-spacing:.03em;text-transform:uppercase;padding:16px 30px;cursor:pointer;border:none;transition:opacity .25s;margin-bottom:12px}
+.install-btn:hover{opacity:.85}
+.install-btn.hidden{display:none}
+.install-hint{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);text-transform:uppercase}
+.already-installed{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--yellow);display:none}
+.already-installed.show{display:block}
+
+/* Разделитель */
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(250,250,247,.2),transparent);margin:44px 0}
+
+/* Возможности */
+.features{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:44px}
+.feature{background:#161616;padding:26px 22px}
+.feature h3{font-family:'JetBrains Mono',ui-monospace,monospace;font-weight:500;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px}
+.feature p{font-size:13px;color:var(--grey);line-height:1.6}
+@media(max-width:480px){.features{grid-template-columns:1fr}}
+
+/* Инструкция */
+.instructions{margin-bottom:44px}
+.instructions h2{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:16px;color:var(--paper);margin-bottom:22px}
+
+.tabs{display:flex;gap:2px;margin-bottom:22px}
+.tab{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.03em;text-transform:uppercase;padding:10px 18px;background:#161616;color:var(--grey);cursor:pointer;border:none;transition:all .25s;flex:1}
+.tab.active{background:rgba(244,228,9,.1);color:var(--yellow);border-bottom:1px solid var(--yellow)}
+
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+.steps{display:flex;flex-direction:column;gap:16px}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step-num{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--yellow);background:rgba(244,228,9,.08);border:1px solid rgba(244,228,9,.25);width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-text{font-size:14px;color:var(--grey);padding-top:5px;line-height:1.6}
+.step-text strong{color:var(--paper)}
+
+/* Footer */
+footer{padding:32px 0;border-top:1px solid rgba(250,250,247,.1);text-align:center}
+footer p{font-size:12px;color:var(--grey)}
+footer a{color:var(--yellow)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="/">{<span class="bk">короче</span>}</a>
+    <a class="nav-back" href="/">← На сайт</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="app-icon">
+      <img src="/icons/icon-192x192.png" alt="{короче}">
+    </div>
+    <p class="eyebrow">Приложение</p>
+    <h1>{короче}</h1>
+    <p class="subtitle">Афиша, спектакли и новости компании — всегда под рукой, даже без интернета</p>
+
+    <button class="install-btn" id="install-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+      </svg>
+      Установить
+    </button>
+    <p class="install-hint" id="install-hint">Бесплатно · Без магазина приложений</p>
+    <p class="already-installed" id="already-installed">✓ Приложение уже установлено</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="features">
+    <div class="feature">
+      <h3>Афиша</h3>
+      <p>Ближайшие показы и новые даты — моментально</p>
+    </div>
+    <div class="feature">
+      <h3>Офлайн</h3>
+      <p>Основные страницы работают без интернета</p>
+    </div>
+    <div class="feature">
+      <h3>Быстро</h3>
+      <p>Мгновенный запуск прямо с экрана телефона</p>
+    </div>
+    <div class="feature">
+      <h3>Без рекламы</h3>
+      <p>Никаких уведомлений и трекинга</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="instructions">
+    <h2>Как установить</h2>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchTab('android', this)">Android</button>
+      <button class="tab" onclick="switchTab('ios', this)">iPhone / iPad</button>
+    </div>
+
+    <div class="tab-content active" id="tab-android">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Откройте сайт в браузере <strong>Google Chrome</strong></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Нажмите кнопку <strong>«Установить»</strong> выше — или найдите в меню Chrome пункт <strong>«Добавить на главный экран»</strong></div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Подтвердите установку в появившемся диалоге</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">Иконка <strong>{короче}</strong> появится на рабочем столе</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="tab-ios">
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">Откройте сайт в браузере <strong>Safari</strong></div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">Нажмите кнопку <strong>«Поделиться»</strong> <span style="font-size:16px">⎙</span> внизу экрана</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">Выберите <strong>«На экран Домой»</strong> в списке действий</div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">Нажмите <strong>«Добавить»</strong> в правом верхнем углу</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p style="text-align:center;margin-bottom:44px">
+    <a href="/tickets/" style="font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--yellow)">Смотреть афишу →</a>
+  </p>
+</div>
+
+<footer>
+  <p>© 2026 «Короче» · <a href="/">koroche-dance.ru</a></p>
+</footer>
+
+<script>
+  // Перехватываем событие установки PWA
+  let deferredPrompt;
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('install-btn').classList.remove('hidden');
+    document.getElementById('install-hint').style.display = 'block';
+  });
+
+  document.getElementById('install-btn').addEventListener('click', async () => {
+    if (!deferredPrompt) {
+      // iOS или уже установлено — показываем инструкцию
+      document.getElementById('tab-ios').classList.add('active');
+      document.getElementById('tab-android').classList.remove('active');
+      document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', i===1));
+      document.querySelector('.instructions').scrollIntoView({behavior:'smooth'});
+      return;
+    }
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      document.getElementById('install-btn').classList.add('hidden');
+      document.getElementById('install-hint').style.display = 'none';
+      document.getElementById('already-installed').classList.add('show');
+    }
+    deferredPrompt = null;
+  });
+
+  // Если уже установлено
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    document.getElementById('install-btn').classList.add('hidden');
+    document.getElementById('install-hint').style.display = 'none';
+    document.getElementById('already-installed').classList.add('show');
+  }
+
+  // Переключение вкладок инструкции
+  function switchTab(tab, btn) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+  }
+
+  // Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
+</body>
+</html>
