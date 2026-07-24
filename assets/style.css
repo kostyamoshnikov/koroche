@@ -205,6 +205,7 @@ body > nav{
   overflow:hidden;white-space:nowrap;padding:14px 0;
 }
 .marquee-track{display:inline-flex;animation:scroll 26s linear infinite}
+.marquee-track.paused{animation-play-state:paused}
 .marquee span{
   font-family:'Archivo Black',sans-serif;
   font-size:20px;text-transform:uppercase;
@@ -379,7 +380,7 @@ footer a:hover{color:var(--paper)}
 /* ---------- reveal on scroll ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.on{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.hero-eyebrow,.hero h1,.hero-tag,.hero-btns{animation:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero-eyebrow,.hero h1,.hero-tag,.hero-btns{animation:none;opacity:1}}
 
 .skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:12px 18px;z-index:1000}
 .skip-link:focus{left:12px;top:12px}

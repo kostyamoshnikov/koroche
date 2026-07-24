@@ -9,6 +9,15 @@ setTimeout(() => {
   document.querySelectorAll('.reveal:not(.on)').forEach(el => el.classList.add('on'));
 }, 900);
 
+// Pause marquee animation off-screen (saves battery/CPU while scrolled away)
+const marqueeEls = document.querySelectorAll('.marquee-track');
+if (marqueeEls.length) {
+  const marqueeIO = new IntersectionObserver(es => {
+    es.forEach(e => e.target.classList.toggle('paused', !e.isIntersecting));
+  }, { threshold: 0 });
+  marqueeEls.forEach(el => marqueeIO.observe(el));
+}
+
 // Mobile menu
 let scrollY = 0;
 
