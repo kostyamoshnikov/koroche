@@ -326,7 +326,6 @@ section{padding:110px 0}
 .piece-hero-bg{position:absolute;inset:0}
 .piece-hero-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.55)}
 .piece-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.15) 0%,rgba(10,10,10,.75) 70%,var(--ink) 100%)}
-.piece-hero-bar{position:absolute;top:0;bottom:0;width:90px;z-index:1}
 .piece-hero-content{position:relative;z-index:2}
 .piece-hero .eyebrow::before,.piece-hero .eyebrow::after{color:var(--paper)}
 .piece-hero h1{font-size:clamp(52px,11vw,140px);margin-bottom:10px}
@@ -404,7 +403,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
 .doc-body h2{
   font-size:clamp(20px,2.6vw,26px);
   margin:44px 0 18px;
-  padding-top:4px;
   border-top:2px solid var(--ink);
   padding-top:20px;
 }
@@ -526,15 +524,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
 }
 
 /* ---------- show page (Послушайте / Сюжеты / Инструкция) ---------- */
-.page-hero .age{
+.hero .age{
   border:2px solid var(--blue);color:var(--blue);
   padding:4px 10px;font-size:11px;letter-spacing:.1em;
   font-family:'JetBrains Mono',monospace;display:inline-block;margin-left:14px;vertical-align:middle;
 }
-.page-hero .dir{font-size:15px;color:var(--grey);margin-bottom:6px}
-.page-hero .dir strong{color:var(--ink);font-weight:700}
-.page-hero .dir a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
-.page-hero .note{font-size:14px;color:var(--grey);max-width:60ch;margin-top:14px}
+.hero .dir{font-size:15px;color:var(--grey);margin-bottom:6px}
+.hero .dir strong{color:var(--ink);font-weight:700}
+.hero .dir a{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
+.hero .note{font-size:14px;color:var(--grey);max-width:60ch;margin-top:14px}
 
 .no-shows{background:#F0F0EC;padding:44px;text-align:center;border:1px solid var(--grey-line)}
 .no-shows p{color:var(--grey);margin-bottom:20px;font-size:16px}
@@ -651,8 +649,3 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
   .tg-widget{bottom:92px;left:16px}
   .tg-bubble{max-width:190px;font-size:12px}
 }
-
-
-
-
-
