@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=13">
+<link rel="stylesheet" href="../assets/style.css?v=15">
 <style>
   .notify-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap}
   .notify-tab{
@@ -55,19 +55,8 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/110846274" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PSN2F5DF');</script>
-<!-- End Google Tag Manager -->
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PSN2F5DF"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 <nav>
   <div class="nav-in">
@@ -126,6 +115,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="notifySite">
       <div class="sub-form">
         <input type="email" id="subEmail" placeholder="Ваша почта" aria-label="Электронная почта">
+        <!-- honeypot: invisible to people, bots that auto-fill every field trip it -->
+        <input type="text" id="subWebsite" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0" value="">
+        <input type="hidden" id="subFormLoaded" value="">
         <button onclick="subscribeEmail()">Подписаться</button>
       </div>
       <p class="sub-ok" id="subOk">Готово — напишем о новых датах.</p>
@@ -167,7 +159,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="foot-grid">
       <div>
         <a class="foot-logo" href="../index.html">{<span class="bk">короче</span>}</a>
-        <p class="foot-desc">Неорганизованная танцевальная компания. Contemporary dance с 2020 года.</p>
+        <p class="foot-desc">Неорганизованная танцевальная компания. На языке современного танца с 2020 года.</p>
         <a href="mailto:aelita.production@yandex.ru">aelita.production@yandex.ru</a>
         <a href="tel:+79605151690">+7 960 515-16-90</a>
       </div>
@@ -184,7 +176,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="../gender/">Гендер</a>
         <a href="../ierarhiya/">Иерархия</a>
         <a href="../ritual/">Ритуал</a>
-        <a href="../arhetip/">Архетип</a>
       </div>
       <div>
         <h4>Соцсети</h4>
@@ -275,12 +266,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const input = document.getElementById('subEmail');
     const v = input.value.trim();
     if(!v || !v.includes('@')) return;
+
+    // Honeypot: реальные люди это поле не видят и не заполняют.
+    // Заполнено — значит бот, тихо выходим, как будто всё прошло успешно.
+    const honeypot = document.getElementById('subWebsite');
+    if (honeypot && honeypot.value) {
+      input.value = '';
+      const ok = document.getElementById('subOk');
+      if (ok) ok.style.display = 'block';
+      return;
+    }
+
+    // Time-trap: живой человек не успевает найти поле и отправить форму
+    // быстрее чем за 1.5 секунды после загрузки страницы — типичные боты успевают.
+    const loadedInput = document.getElementById('subFormLoaded');
+    const loadedAt = Number((loadedInput && loadedInput.value) || 0);
+    if (loadedAt && (Date.now() - loadedAt) < 1500) return;
+
     await sendTelegram('Билеты — подписка на новые даты', {'Email': v});
     await sendFormspree('Билеты — подписка на новые даты', {'Email': v});
     const ok = document.getElementById('subOk');
     if(ok) ok.style.display = 'block';
     input.value = '';
   }
+
+  (function(){
+    var el = document.getElementById('subFormLoaded');
+    if (el) el.value = String(Date.now());
+  })();
 </script>
 
 <!-- Telegram виджет -->
@@ -292,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 </div>
 
-<script src="../assets/main.js?v=13"></script>
+<script src="../assets/main.js?v=15"></script>
 <script src="/assets/analytics-events.js"></script>
 </body>
 </html>

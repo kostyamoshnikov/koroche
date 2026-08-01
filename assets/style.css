@@ -257,9 +257,11 @@ section{padding:110px 0}
 .rep-mid p{color:var(--grey);font-size:14px;max-width:60ch}
 .rep-arrow{font-size:22px;color:var(--blue);opacity:0;transform:translateX(-6px);transition:.25s ease}
 .rep-item:hover .rep-arrow{opacity:1;transform:translateX(0)}
+.rep-tag-archive{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--grey);border:1px solid var(--grey-line);padding:4px 10px;border-radius:20px;white-space:nowrap}
 @media(max-width:640px){
   .rep-item{grid-template-columns:56px 1fr;gap:14px}
   .rep-arrow{display:none}
+  .rep-tag-archive{display:none}
 }
 
 /* ---------- SHOW CARDS (Археология человеческого) ---------- */
