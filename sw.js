@@ -1,8 +1,14 @@
 // ── {короче} · Service Worker ───────────────────────────────────
 // Стратегия: Cache First для статики, Network First для HTML страниц
 
-const CACHE_NAME = 'koroche-v1';
-const STATIC_CACHE = 'koroche-static-v1';
+// Единственное число, которое нужно поднимать при правке. Раньше
+// ?v=N на страницах и CACHE_NAME здесь жили порознь и расходились —
+// CACHE_NAME завис на koroche-v1, пока ?v= на страницах дошёл до 15.
+// С koroche-v22 — один источник (см. _tools/bump_version.py: он
+// поднимает число здесь и переписывает ?v=N везде разом).
+const SITE_VERSION = 22;
+const CACHE_NAME = `koroche-v${SITE_VERSION}`;
+const STATIC_CACHE = `koroche-static-v${SITE_VERSION}`;
 
 // Страницы и ресурсы для предварительного кэширования при установке
 const PRECACHE_URLS = [
@@ -16,8 +22,8 @@ const PRECACHE_URLS = [
   '/favicon.ico',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png',
-  '/assets/style.css',
-  '/assets/main.js',
+  `/assets/style.css?v=${SITE_VERSION}`,
+  `/assets/main.js?v=${SITE_VERSION}`,
 ];
 
 // ── Установка: кэшируем ключевые страницы ───────────────────────

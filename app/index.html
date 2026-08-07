@@ -7,6 +7,10 @@
 <meta name="description" content="Установите приложение «Короче» на телефон — афиша, спектакли и новости прямо на экране.">
 <meta property="og:title" content="Приложение {короче}">
 <meta property="og:description" content="Установите приложение — афиша и спектакли всегда под рукой.">
+<link rel="canonical" href="https://koroche-dance.ru/app/">
+<link rel="alternate" hreflang="ru" href="https://koroche-dance.ru/app/">
+<link rel="alternate" hreflang="en" href="https://koroche-dance.ru/en/app/">
+<link rel="alternate" hreflang="x-default" href="https://koroche-dance.ru/app/">
 <link rel="manifest" href="/manifest.json">
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
@@ -32,6 +36,8 @@ nav{padding:20px 0;border-bottom:1px solid rgba(250,250,247,.1)}
 .logo .bk{color:var(--yellow)}
 .nav-back{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);transition:color .25s}
 .nav-back:hover{color:var(--paper)}
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-switch{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);opacity:.6}
 
 /* Hero */
 .hero{padding:56px 0 40px;text-align:center}
@@ -89,7 +95,10 @@ footer a{color:var(--yellow)}
 <nav>
   <div class="nav-in">
     <a class="logo" href="/">{<span class="bk">короче</span>}</a>
-    <a class="nav-back" href="/">← На сайт</a>
+    <div class="nav-right">
+      <a class="nav-back" href="/">← На сайт</a>
+      <a class="lang-switch" href="/en/app/" title="English version">EN</a>
+    </div>
   </div>
 </nav>
 
