@@ -86,18 +86,35 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "VideoObject",
-  "name": "Тизер спектакля «Послушайте»",
-  "description": "Тизер интерактивного танцевального спектакля Юлии Бычковой и компании «Короче» — путешествие по просторам личных чувств, эмоций и наблюдений.",
-  "thumbnailUrl": "https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784386916/9789031385815_pxpilq.jpg",
-  "uploadDate": "2026-07-18",
-  "contentUrl": "https://res.cloudinary.com/kostyamoshnikov/video/upload/v1784386916/9789031385815_pxpilq.mp4",
-  "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-229246987&id=456239071&hd=2",
-  "publisher": {
-    "@type": "Organization",
-    "name": "{короче}",
-    "url": "https://koroche-dance.ru"
-  }
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "name": "Тизер спектакля «Послушайте»",
+      "description": "Тизер интерактивного танцевального спектакля Юлии Бычковой и компании «Короче» — путешествие по просторам личных чувств, эмоций и наблюдений.",
+      "thumbnailUrl": "https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784386916/9789031385815_pxpilq.jpg",
+      "uploadDate": "2026-07-18",
+      "contentUrl": "https://res.cloudinary.com/kostyamoshnikov/video/upload/v1784386916/9789031385815_pxpilq.mp4",
+      "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-229246987&id=456239071&hd=2",
+      "publisher": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    },
+    {
+      "@type": "DanceEvent",
+      "@id": "https://koroche-dance.ru/listen/#event",
+      "name": "Послушайте!",
+      "description": "Интерактивный танцевальный спектакль Юлии Бычковой и компании «Короче» — путешествие по просторам личных чувств, эмоций и наблюдений.",
+      "url": "https://koroche-dance.ru/listen/",
+      "image": "https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784386916/9789031385815_pxpilq.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    }
+  ]
 }
 </script>
 </head>

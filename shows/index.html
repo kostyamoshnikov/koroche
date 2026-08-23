@@ -37,24 +37,70 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Археология человеческого",
-  "description": "Вечер малых форм современного танца. Три самостоятельных высказывания танцовщиков о человеческой природе.",
-  "genre": "Современный танец",
-  "datePublished": "2026",
-  "hasPart": [
-    { "@type": "CreativeWork", "name": "Гендер. «Первородные»", "url": "https://koroche-dance.ru/gender/" },
-    { "@type": "CreativeWork", "name": "Иерархия. «Код Альфа»", "url": "https://koroche-dance.ru/ierarhiya/" },
-    { "@type": "CreativeWork", "name": "Ритуал", "url": "https://koroche-dance.ru/ritual/" }
-  ],
-  "contributor": [
-    { "@type": "Person", "name": "Юлия Бычкова", "description": "Танцдраматург" },
-    { "@type": "Person", "name": "Иван Сачков", "description": "Танцдраматург" },
-    { "@type": "Person", "name": "Анастасия Сенокосова", "description": "Танцдраматург", "url": "https://koroche-dance.ru/senokosova/" }
-  ],
-  "publisher": { "@type": "Organization", "name": "{короче}", "url": "https://koroche-dance.ru" },
-  "image": "https://koroche-dance.ru/assets/img/gender.jpg",
-  "url": "https://koroche-dance.ru/shows/"
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "Археология человеческого",
+      "description": "Вечер малых форм современного танца. Три самостоятельных высказывания танцовщиков о человеческой природе.",
+      "genre": "Современный танец",
+      "datePublished": "2026",
+      "hasPart": [
+        {
+          "@type": "CreativeWork",
+          "name": "Гендер. «Первородные»",
+          "url": "https://koroche-dance.ru/gender/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Иерархия. «Код Альфа»",
+          "url": "https://koroche-dance.ru/ierarhiya/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Ритуал",
+          "url": "https://koroche-dance.ru/ritual/"
+        }
+      ],
+      "contributor": [
+        {
+          "@type": "Person",
+          "name": "Юлия Бычкова",
+          "description": "Танцдраматург"
+        },
+        {
+          "@type": "Person",
+          "name": "Иван Сачков",
+          "description": "Танцдраматург"
+        },
+        {
+          "@type": "Person",
+          "name": "Анастасия Сенокосова",
+          "description": "Танцдраматург",
+          "url": "https://koroche-dance.ru/senokosova/"
+        }
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      },
+      "image": "https://koroche-dance.ru/assets/img/gender.jpg",
+      "url": "https://koroche-dance.ru/shows/"
+    },
+    {
+      "@type": "DanceEvent",
+      "@id": "https://koroche-dance.ru/shows/#event",
+      "name": "Археология человеческого",
+      "description": "Вечер малых форм современного танца. Три самостоятельных высказывания танцовщиков о человеческой природе.",
+      "url": "https://koroche-dance.ru/shows/",
+      "image": "https://koroche-dance.ru/assets/img/gender.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    }
+  ]
 }
 </script>
 <!-- Yandex.Metrika counter -->

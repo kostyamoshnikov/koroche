@@ -37,14 +37,38 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Причитания по себе",
-  "description": "Терапевтический танцперформанс о том, как пережить трудности. По мотивам фольклорного жанра причитаний.",
-  "genre": "Современный танец",
-  "dateCreated": "2022",
-  "creator": { "@type": "Person", "name": "Юлия Бычкова" },
-  "publisher": { "@type": "Organization", "name": "{короче}", "url": "https://koroche-dance.ru" },
-  "url": "https://koroche-dance.ru/prichitaniya/"
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "Причитания по себе",
+      "description": "Терапевтический танцперформанс о том, как пережить трудности. По мотивам фольклорного жанра причитаний.",
+      "genre": "Современный танец",
+      "dateCreated": "2022",
+      "creator": {
+        "@type": "Person",
+        "name": "Юлия Бычкова"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      },
+      "url": "https://koroche-dance.ru/prichitaniya/"
+    },
+    {
+      "@type": "DanceEvent",
+      "@id": "https://koroche-dance.ru/prichitaniya/#event",
+      "name": "Причитания по себе",
+      "description": "Терапевтический танцперформанс о том, как пережить трудности. По мотивам фольклорного жанра причитаний.",
+      "url": "https://koroche-dance.ru/prichitaniya/",
+      "image": "https://koroche-dance.ru/assets/img/logo-black.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    }
+  ]
 }
 </script>
 <!-- Yandex.Metrika counter -->

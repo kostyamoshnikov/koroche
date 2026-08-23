@@ -37,14 +37,38 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Гоголь — это снится",
-  "description": "Пластический танцевальный перформанс. Ассоциации, образы и лёгкие намёки на мистические сюжеты произведений Николая Гоголя.",
-  "genre": "Современный танец",
-  "dateCreated": "2020",
-  "creator": { "@type": "Person", "name": "Юлия Бычкова" },
-  "publisher": { "@type": "Organization", "name": "{короче}", "url": "https://koroche-dance.ru" },
-  "url": "https://koroche-dance.ru/gogol/"
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "Гоголь — это снится",
+      "description": "Пластический танцевальный перформанс. Ассоциации, образы и лёгкие намёки на мистические сюжеты произведений Николая Гоголя.",
+      "genre": "Современный танец",
+      "dateCreated": "2020",
+      "creator": {
+        "@type": "Person",
+        "name": "Юлия Бычкова"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      },
+      "url": "https://koroche-dance.ru/gogol/"
+    },
+    {
+      "@type": "DanceEvent",
+      "@id": "https://koroche-dance.ru/gogol/#event",
+      "name": "Гоголь — это снится",
+      "description": "Пластический танцевальный перформанс. Ассоциации, образы и лёгкие намёки на мистические сюжеты произведений Николая Гоголя.",
+      "url": "https://koroche-dance.ru/gogol/",
+      "image": "https://koroche-dance.ru/assets/img/logo-black.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    }
+  ]
 }
 </script>
 <!-- Yandex.Metrika counter -->

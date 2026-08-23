@@ -37,12 +37,33 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Техника воздухоплавания",
-  "genre": "Современный танец",
-  "dateCreated": "2023",
-  "publisher": { "@type": "Organization", "name": "{короче}", "url": "https://koroche-dance.ru" },
-  "url": "https://koroche-dance.ru/tehnika-vozduhoplavaniya/"
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "Техника воздухоплавания",
+      "genre": "Современный танец",
+      "dateCreated": "2023",
+      "publisher": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      },
+      "url": "https://koroche-dance.ru/tehnika-vozduhoplavaniya/"
+    },
+    {
+      "@type": "DanceEvent",
+      "@id": "https://koroche-dance.ru/tehnika-vozduhoplavaniya/#event",
+      "name": "Техника воздухоплавания",
+      "description": "Работа танцевальной компании «Короче», современный танец.",
+      "url": "https://koroche-dance.ru/tehnika-vozduhoplavaniya/",
+      "image": "https://koroche-dance.ru/assets/img/logo-black.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    }
+  ]
 }
 </script>
 <!-- Yandex.Metrika counter -->

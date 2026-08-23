@@ -37,13 +37,34 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "БалалайкМи",
-  "description": "Сторидэнсинг. Локальные истории о нашем общем прошлом и настоящем, рассказанные вербальными и невербальными средствами.",
-  "genre": "Современный танец",
-  "dateCreated": "2022",
-  "publisher": { "@type": "Organization", "name": "{короче}", "url": "https://koroche-dance.ru" },
-  "url": "https://koroche-dance.ru/balalaykmi/"
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "БалалайкМи",
+      "description": "Сторидэнсинг. Локальные истории о нашем общем прошлом и настоящем, рассказанные вербальными и невербальными средствами.",
+      "genre": "Современный танец",
+      "dateCreated": "2022",
+      "publisher": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      },
+      "url": "https://koroche-dance.ru/balalaykmi/"
+    },
+    {
+      "@type": "DanceEvent",
+      "@id": "https://koroche-dance.ru/balalaykmi/#event",
+      "name": "БалалайкМи",
+      "description": "Сторидэнсинг. Локальные истории о нашем общем прошлом и настоящем, рассказанные вербальными и невербальными средствами.",
+      "url": "https://koroche-dance.ru/balalaykmi/",
+      "image": "https://koroche-dance.ru/assets/img/logo-black.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    }
+  ]
 }
 </script>
 <!-- Yandex.Metrika counter -->

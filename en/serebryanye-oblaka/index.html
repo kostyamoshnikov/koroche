@@ -37,15 +37,42 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CreativeWork",
-  "name": "Серебряные облака",
-  "description": "Танцперформанс с отсылками к работам Энди Уорхола — размышления о шрамах, физических и душевных.",
-  "genre": "Современный танец",
-  "dateCreated": "2021",
-  "creator": { "@type": "Person", "name": "Юлия Бычкова" },
-  "publisher": { "@type": "Organization", "name": "{короче}", "url": "https://koroche-dance.ru" },
-  "isBasedOn": { "@type": "Person", "name": "Andy Warhol" },
-  "url": "https://koroche-dance.ru/serebryanye-oblaka/"
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "name": "Серебряные облака",
+      "description": "Танцперформанс с отсылками к работам Энди Уорхола — размышления о шрамах, физических и душевных.",
+      "genre": "Современный танец",
+      "dateCreated": "2021",
+      "creator": {
+        "@type": "Person",
+        "name": "Юлия Бычкова"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      },
+      "isBasedOn": {
+        "@type": "Person",
+        "name": "Andy Warhol"
+      },
+      "url": "https://koroche-dance.ru/serebryanye-oblaka/"
+    },
+    {
+      "@type": "DanceEvent",
+      "@id": "https://koroche-dance.ru/serebryanye-oblaka/#event",
+      "name": "Серебряные облака",
+      "description": "Танцперформанс с отсылками к работам Энди Уорхола — размышления о шрамах, физических и душевных.",
+      "url": "https://koroche-dance.ru/serebryanye-oblaka/",
+      "image": "https://koroche-dance.ru/assets/img/logo-black.jpg",
+      "organizer": {
+        "@type": "Organization",
+        "name": "{короче}",
+        "url": "https://koroche-dance.ru"
+      }
+    }
+  ]
 }
 </script>
 <!-- Yandex.Metrika counter -->
