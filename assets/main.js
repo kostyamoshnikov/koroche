@@ -60,6 +60,7 @@ document.addEventListener('keydown', e => {
   if(localStorage.getItem('cookies_accepted')){
     const b = document.getElementById('cookie-banner');
     if(b) b.style.display = 'none';
+    if (window.KOROCHE_initOwnStats) window.KOROCHE_initOwnStats();
   }
 })();
 
@@ -78,6 +79,7 @@ function acceptCookies(){
     b.classList.add('hidden');
     setTimeout(() => { b.style.display = 'none'; }, 400);
   }
+  if (window.KOROCHE_initOwnStats) window.KOROCHE_initOwnStats();
   updateFixedWidgets();
 }
 
