@@ -6,7 +6,7 @@
 // CACHE_NAME завис на koroche-v1, пока ?v= на страницах дошёл до 15.
 // С koroche-v22 — один источник (см. _tools/bump_version.py: он
 // поднимает число здесь и переписывает ?v=N везде разом).
-const SITE_VERSION = 23;
+const SITE_VERSION = 24;
 const CACHE_NAME = `koroche-v${SITE_VERSION}`;
 const STATIC_CACHE = `koroche-static-v${SITE_VERSION}`;
 

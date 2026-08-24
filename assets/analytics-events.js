@@ -105,6 +105,12 @@
     if (window.ym) {
       try { window.ym(110846274, 'reachGoal', goal, params); } catch (e) {}
     }
+    // Пиксель VK Рекламы (window._tmr, см. блок «VK Ads pixel» в head
+    // каждой страницы) — window.KOROCHE_VK_PIXEL_ID заполняется только
+    // если VK_PIXEL_ID там не 0, то есть пиксель реально создан.
+    if (window._tmr && window.KOROCHE_VK_PIXEL_ID) {
+      try { window._tmr.push({ id: window.KOROCHE_VK_PIXEL_ID, type: 'reachGoal', goal: goal }); } catch (e) {}
+    }
     ownTrack(goal, params);
   }
 
