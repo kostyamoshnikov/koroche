@@ -673,7 +673,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offse
 .aud-review-form{max-width:520px}
 .aud-review-form h3{font-size:17px;font-weight:400;letter-spacing:.02em;color:var(--ink);margin-bottom:18px}
 .aud-stars-input{margin-bottom:16px}
-.aud-star-btn{font-size:26px;color:var(--grey-line);cursor:pointer;transition:color .15s;margin-right:4px;display:inline-block}
+.aud-star-btn{font-size:34px;color:var(--grey-line);cursor:pointer;transition:color .15s;margin-right:4px;display:inline-block}
 .aud-star-btn.on{color:var(--blue)}
 .aud-input,.aud-textarea{width:100%;background:var(--paper);border:1px solid var(--grey-line);color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;padding:13px 16px;margin-bottom:14px;resize:vertical}
 .aud-input:focus,.aud-textarea:focus{outline:1px solid var(--blue);border-color:var(--blue)}

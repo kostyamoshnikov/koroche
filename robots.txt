@@ -6,5 +6,6 @@ Disallow: /oferta/
 Disallow: /privacy/
 Disallow: /cookies/
 Disallow: /bot/
+Disallow: /admin/
 
 Sitemap: https://koroche-dance.ru/sitemap.xml

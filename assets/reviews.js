@@ -94,6 +94,7 @@
       namePh: 'Ваше имя',
       textPh: 'Что вам запомнилось?',
       consent: 'Согласен(на) на публикацию отзыва на сайте',
+      pdConsent: 'Согласен(на) на обработку персональных данных',
       submit: 'Отправить отзыв',
       sending: 'Отправляем…',
       thanksTitle: 'Спасибо!',
@@ -102,6 +103,7 @@
       errText: 'Текст отзыва — от 10 до 2000 символов',
       errRating: 'Поставьте оценку',
       errConsent: 'Нужно согласие на публикацию',
+      errPdConsent: 'Нужно согласие на обработку персональных данных',
     },
     en: {
       empty: 'No published reviews yet — be the first.',
@@ -110,6 +112,7 @@
       namePh: 'Your name',
       textPh: 'What stayed with you?',
       consent: 'I agree to have my review published on the site',
+      pdConsent: 'I agree to the processing of my personal data',
       submit: 'Submit review',
       sending: 'Sending…',
       thanksTitle: 'Thank you!',
@@ -118,6 +121,7 @@
       errText: 'Review text — 10 to 2000 characters',
       errRating: 'Please give a rating',
       errConsent: 'Publication consent is required',
+      errPdConsent: 'Personal data consent is required',
     },
   };
   var t = TEXT[LANG];
@@ -211,6 +215,7 @@
         '<input type="text" class="aud-input" id="aud-name" placeholder="' + t.namePh + '" maxlength="80">' +
         '<textarea class="aud-textarea" id="aud-text" placeholder="' + t.textPh + '" maxlength="2000" rows="4"></textarea>' +
         '<label class="aud-consent"><input type="checkbox" id="aud-consent"> ' + t.consent + '</label>' +
+        '<label class="aud-consent"><input type="checkbox" id="aud-pd-consent"> ' + t.pdConsent + '</label>' +
         '<p class="aud-error" id="aud-error" style="display:none"></p>' +
         '<button class="btn btn-solid" id="aud-submit" type="button">' + t.submit + '</button>' +
         // Honeypot: скрыто от людей (position off-screen), боты часто
@@ -239,11 +244,13 @@
       var name = wrap.querySelector('#aud-name').value.trim();
       var text = wrap.querySelector('#aud-text').value.trim();
       var consent = wrap.querySelector('#aud-consent').checked;
+      var pdConsent = wrap.querySelector('#aud-pd-consent').checked;
 
       errorEl.style.display = 'none';
       if (!name) return showError(t.errName);
       if (text.length < 10 || text.length > 2000) return showError(t.errText);
       if (!(rating >= 1 && rating <= 5)) return showError(t.errRating);
+      if (!pdConsent) return showError(t.errPdConsent);
       if (!consent) return showError(t.errConsent);
 
       var submitBtn = wrap.querySelector('#aud-submit');

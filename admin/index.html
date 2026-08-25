@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Админка — {короче}</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0A0A0A;--paper:#FAFAF7;--blue:#1E2EFF;--yellow:#F4E409;--grey:#8C8C86;--green:#1E8F4E;--red:#C4392B;--line:rgba(10,10,10,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{min-height:100%}
+body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+nav{padding:18px 0;border-bottom:1px solid var(--line)}
+.nav-in{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;font-size:18px;text-decoration:none}
+.logo .bk{color:var(--blue)}
+.logo-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);letter-spacing:.03em}
+main{padding:40px 0 80px}
+h1{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:22px;margin-bottom:24px}
+h2{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.02em;margin:36px 0 14px}
+.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.03em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;transition:all .2s;display:inline-block}
+.btn-blue{background:var(--blue);color:var(--paper)}
+.btn-blue:hover{opacity:.85}
+.btn-blue:disabled{opacity:.4;cursor:default}
+.btn-outline{background:none;border:1px solid var(--line);color:var(--ink)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.btn-green{background:var(--green);color:var(--paper)}
+.btn-green:hover{opacity:.85}
+.btn-red{background:none;border:1px solid var(--red);color:var(--red)}
+.btn-red:hover{background:var(--red);color:var(--paper)}
+.btn-sm{padding:8px 14px;font-size:11px}
+
+#loginScreen{max-width:340px;margin:60px auto 0}
+#loginScreen input{width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--paper);font-family:'Inter',sans-serif;font-size:15px;margin-bottom:12px}
+#loginScreen input:focus{outline:none;border-color:var(--blue)}
+#loginError{color:var(--red);font-size:13px;margin-bottom:12px;min-height:18px}
+.pw-row{position:relative}
+.pw-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grey);padding:4px}
+
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);margin-bottom:8px}
+.stat-card{background:var(--paper);padding:20px 16px}
+.stat-card .n{font-family:'Archivo Black','Arial Black',sans-serif;font-size:clamp(22px,4vw,30px);line-height:1}
+.stat-card .l{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--grey);text-transform:uppercase;margin-top:6px}
+.link-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
+.link-row a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--blue);text-decoration:underline}
+
+.review-item{border:1px solid var(--line);padding:18px 20px;margin-bottom:10px}
+.review-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px;flex-wrap:wrap}
+.review-meta{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey)}
+.review-stars{color:var(--yellow);letter-spacing:2px;text-shadow:0 0 0 var(--ink);-webkit-text-stroke:.5px var(--ink)}
+.review-status{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;text-transform:uppercase;padding:3px 8px;letter-spacing:.03em}
+.status-pending{background:var(--yellow);color:var(--ink)}
+.status-approved{background:var(--green);color:var(--paper)}
+.status-rejected{background:var(--red);color:var(--paper)}
+.review-text{font-size:14px;line-height:1.6;margin-bottom:12px;white-space:pre-wrap}
+.review-actions{display:flex;gap:10px}
+.empty{color:var(--grey);font-size:14px;padding:20px 0}
+
+.edit-form{display:flex;flex-direction:column;gap:10px;max-width:560px}
+.edit-form label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);text-transform:uppercase}
+.edit-form input,.edit-form textarea{padding:12px 14px;border:1px solid var(--line);background:var(--paper);font-family:'Inter',sans-serif;font-size:14px;width:100%}
+.edit-form textarea{min-height:80px;resize:vertical}
+.edit-form input:focus,.edit-form textarea:focus{outline:none;border-color:var(--blue)}
+#editPreview{font-size:13px;background:#F0F0EC;padding:14px;margin-top:4px;display:none;line-height:1.6}
+#editPreview mark{background:var(--yellow)}
+#editMsg{font-size:13px;margin-top:8px;min-height:18px}
+#editMsg.ok{color:var(--green)}
+#editMsg.err{color:var(--red)}
+
+#loadingState,#errorState{padding:60px 0;text-align:center;color:var(--grey)}
+#errorState{display:none}
+footer{padding:24px 0;border-top:1px solid var(--line);text-align:center;margin-top:60px}
+footer p{color:var(--grey);font-size:12px}
+@media(max-width:600px){.stat-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap nav-in">
+  <a class="logo" href="/">{<span class="bk">короче</span>}</a>
+  <span class="logo-sub">админка</span>
+</div></nav>
+
+<main class="wrap">
+
+<div id="loginScreen">
+  <h1 style="font-size:18px">Вход</h1>
+  <div class="pw-row">
+    <input type="password" id="pwInput" placeholder="Пароль" autocomplete="current-password">
+    <button class="pw-toggle" id="pwToggle" type="button">Показать</button>
+  </div>
+  <div id="loginError"></div>
+  <button class="btn btn-blue" id="loginBtn" style="width:100%">Войти</button>
+</div>
+
+<div id="content" style="display:none">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h1>Админка</h1>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-outline btn-sm" id="refreshBtn">Обновить</button>
+      <button class="btn btn-outline btn-sm" id="logoutBtn">Выйти</button>
+    </div>
+  </div>
+
+  <div id="loadingState">Загружаем…</div>
+  <div id="errorState">
+    <p style="margin-bottom:14px">Не получилось загрузить данные.</p>
+    <button class="btn btn-blue" id="retryBtn">Попробовать снова</button>
+  </div>
+
+  <div id="dashboard" style="display:none">
+    <div class="stat-grid" id="statGrid"></div>
+    <div class="link-row" id="linkRow"></div>
+
+    <h2>Отзывы на модерации</h2>
+    <div id="reviewsList"></div>
+
+    <h2>Правка текста сайта</h2>
+    <p style="color:var(--grey);font-size:13px;margin-bottom:14px">Раздел страницы (например, <code>gogol</code> или <code>shows</code>), точный текст для замены — он должен встречаться на странице ровно один раз. Юридические и служебные страницы не редактируются отсюда.</p>
+    <div class="edit-form">
+      <label for="editPage">Раздел (slug)</label>
+      <input type="text" id="editPage" placeholder="gogol">
+      <label for="editOld">Текущий текст (точно, как на странице)</label>
+      <textarea id="editOld"></textarea>
+      <label for="editNew">Новый текст</label>
+      <textarea id="editNew"></textarea>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-outline" id="editPreviewBtn">Проверить</button>
+        <button class="btn btn-blue" id="editCommitBtn" disabled>Подтвердить и сохранить</button>
+      </div>
+      <div id="editPreview"></div>
+      <div id="editMsg"></div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer><div class="wrap"><p>{короче} · внутренний инструмент, не для зрителей</p></div></footer>
+
+<script>
+  // ЗАПОЛНИТЬ после деплоя _tools/admin/Code.gs (см. README.md там же) —
+  // URL веб-приложения Apps Script, заканчивается на /exec.
+  var ADMIN_API_URL = '';
+
+  var KEY_STORAGE = 'koroche_admin_key';
+
+  function getKey() { return sessionStorage.getItem(KEY_STORAGE); }
+  function setKey(k) { sessionStorage.setItem(KEY_STORAGE, k); }
+  function clearKey() { sessionStorage.removeItem(KEY_STORAGE); }
+
+  async function sha256Hex(str) {
+    var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return Array.from(new Uint8Array(buf)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+  }
+
+  function notConfigured() {
+    alert('Админка ещё не подключена — впишите ADMIN_API_URL после деплоя _tools/admin/Code.gs.');
+  }
+
+  async function apiGet(action) {
+    if (!ADMIN_API_URL) { notConfigured(); return null; }
+    var url = ADMIN_API_URL + '?action=' + encodeURIComponent(action) + '&key=' + encodeURIComponent(getKey());
+    var res = await fetch(url);
+    return res.json();
+  }
+
+  async function apiPost(body) {
+    if (!ADMIN_API_URL) { notConfigured(); return null; }
+    body.key = getKey();
+    var res = await fetch(ADMIN_API_URL, { method: 'POST', body: JSON.stringify(body) });
+    return res.json();
+  }
+
+  var STAR = '★', EMPTY_STAR = '☆';
+  function starsHtml(n) {
+    var out = '';
+    for (var i = 1; i <= 5; i++) out += i <= n ? STAR : EMPTY_STAR;
+    return out;
+  }
+
+  function fmtDate(d) {
+    if (!d) return '—';
+    try {
+      var dt = new Date(d);
+      return dt.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) { return d; }
+  }
+
+  function renderStats(stats) {
+    var grid = document.getElementById('statGrid');
+    grid.innerHTML =
+      '<div class="stat-card"><div class="n">' + stats.totalReviews + '</div><div class="l">Всего отзывов</div></div>' +
+      '<div class="stat-card"><div class="n">' + stats.pending + '</div><div class="l">На модерации</div></div>' +
+      '<div class="stat-card"><div class="n">' + stats.approved + '</div><div class="l">Опубликовано</div></div>' +
+      '<div class="stat-card"><div class="n">' + stats.rejected + '</div><div class="l">Отклонено</div></div>';
+
+    var links = document.getElementById('linkRow');
+    links.innerHTML = '';
+    if (stats.reviewsSheetUrl) links.innerHTML += '<a href="' + stats.reviewsSheetUrl + '" target="_blank" rel="noopener">Таблица отзывов →</a>';
+    if (stats.analyticsWeeklyReportUrl) links.innerHTML += '<a href="' + stats.analyticsWeeklyReportUrl + '" target="_blank" rel="noopener">Недельный отчёт аналитики →</a>';
+  }
+
+  function statusClass(s) {
+    if (s === 'На модерации') return 'status-pending';
+    if (s === 'Опубликован') return 'status-approved';
+    return 'status-rejected';
+  }
+
+  function renderReviews(reviews) {
+    var el = document.getElementById('reviewsList');
+    var pending = reviews.filter(function (r) { return r.status === 'На модерации'; });
+    var rest = reviews.filter(function (r) { return r.status !== 'На модерации'; });
+    var ordered = pending.concat(rest);
+
+    if (!ordered.length) {
+      el.innerHTML = '<div class="empty">Отзывов пока нет.</div>';
+      return;
+    }
+
+    el.innerHTML = ordered.map(function (r) {
+      var actions = '';
+      if (r.status !== 'Опубликован') actions += '<button class="btn btn-green btn-sm" onclick="setStatus(\'' + r.id + '\',\'Опубликован\')">Одобрить</button>';
+      if (r.status !== 'Отклонён') actions += '<button class="btn btn-red btn-sm" onclick="setStatus(\'' + r.id + '\',\'Отклонён\')">Отклонить</button>';
+      return '<div class="review-item">' +
+        '<div class="review-top">' +
+          '<div><strong>' + esc(r.name) + '</strong> · <span class="review-meta">' + esc(r.slug) + ' · ' + fmtDate(r.date) + '</span></div>' +
+          '<div><span class="review-stars">' + starsHtml(r.rating) + '</span> <span class="review-status ' + statusClass(r.status) + '">' + esc(r.status) + '</span></div>' +
+        '</div>' +
+        '<div class="review-text">' + esc(r.text) + '</div>' +
+        '<div class="review-actions">' + actions + '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function esc(s) {
+    var d = document.createElement('div');
+    d.textContent = String(s == null ? '' : s);
+    return d.innerHTML;
+  }
+
+  async function setStatus(id, status) {
+    var res = await apiPost({ action: 'setStatus', id: id, status: status });
+    if (res && res.ok) {
+      loadDashboard();
+    } else {
+      alert('Не получилось изменить статус: ' + (res && res.error || 'неизвестная ошибка'));
+    }
+  }
+
+  async function loadDashboard() {
+    document.getElementById('loadingState').style.display = 'block';
+    document.getElementById('errorState').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'none';
+
+    var statsRes = await apiGet('stats');
+    var listRes = await apiGet('list');
+
+    if (!statsRes || statsRes.error || !listRes || listRes.error) {
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('errorState').style.display = 'block';
+      return;
+    }
+
+    renderStats(statsRes.stats);
+    renderReviews(listRes.reviews);
+    document.getElementById('loadingState').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+  }
+
+  async function doLogin() {
+    var pw = document.getElementById('pwInput').value;
+    var errEl = document.getElementById('loginError');
+    errEl.textContent = '';
+    if (!pw) { errEl.textContent = 'Введите пароль'; return; }
+    var hash = await sha256Hex(pw);
+    setKey(hash);
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    await loadDashboard();
+    // Если пароль неверный, stats придёт с error — проверим и вернём на экран входа.
+    var check = await apiGet('stats');
+    if (!check || check.error === 'invalid_key') {
+      clearKey();
+      document.getElementById('loginScreen').style.display = 'block';
+      document.getElementById('content').style.display = 'none';
+      errEl.textContent = 'Неверный пароль';
+    }
+  }
+
+  function doLogout() {
+    clearKey();
+    location.reload();
+  }
+
+  var lastPreviewPage = null, lastPreviewOld = null, lastPreviewNew = null;
+
+  async function doEditPreview() {
+    var page = document.getElementById('editPage').value.trim();
+    var oldText = document.getElementById('editOld').value;
+    var newText = document.getElementById('editNew').value;
+    var msgEl = document.getElementById('editMsg');
+    var previewEl = document.getElementById('editPreview');
+    msgEl.textContent = ''; msgEl.className = '';
+    document.getElementById('editCommitBtn').disabled = true;
+
+    if (!page || !oldText) { msgEl.textContent = 'Заполните раздел и текущий текст'; msgEl.className = 'err'; return; }
+
+    var res = await apiPost({ action: 'siteEditPreview', page: page, oldText: oldText, newText: newText });
+    if (res && res.ok) {
+      previewEl.style.display = 'block';
+      previewEl.innerHTML = esc(res.contextBefore) + '<mark>' + esc(oldText) + '</mark>' + esc(res.contextAfter);
+      msgEl.textContent = 'Найдено ровно один раз — можно сохранять.';
+      msgEl.className = 'ok';
+      lastPreviewPage = page; lastPreviewOld = oldText; lastPreviewNew = newText;
+      document.getElementById('editCommitBtn').disabled = false;
+    } else {
+      previewEl.style.display = 'none';
+      var errors = {
+        text_not_found: 'Текст не найден на странице — проверьте точность (пробелы, регистр).',
+        text_not_unique: 'Текст встречается больше одного раза — уточните фрагмент.',
+        page_not_found_on_github: 'Такой страницы не нашлось.',
+        page_excluded: 'Эта страница не редактируется отсюда (юридическая/служебная).',
+      };
+      msgEl.textContent = (res && errors[res.error]) || 'Ошибка: ' + (res && res.error || 'неизвестная');
+      msgEl.className = 'err';
+    }
+  }
+
+  async function doEditCommit() {
+    if (document.getElementById('editPage').value.trim() !== lastPreviewPage ||
+        document.getElementById('editOld').value !== lastPreviewOld ||
+        document.getElementById('editNew').value !== lastPreviewNew) {
+      document.getElementById('editMsg').textContent = 'Поля изменились после проверки — нажмите «Проверить» ещё раз.';
+      document.getElementById('editMsg').className = 'err';
+      return;
+    }
+    var btn = document.getElementById('editCommitBtn');
+    btn.disabled = true; btn.textContent = 'Сохраняем…';
+    var res = await apiPost({ action: 'siteEditCommit', page: lastPreviewPage, oldText: lastPreviewOld, newText: lastPreviewNew });
+    btn.textContent = 'Подтвердить и сохранить';
+    var msgEl = document.getElementById('editMsg');
+    if (res && res.ok) {
+      msgEl.textContent = 'Сохранено — правка появится на сайте в течение минуты.';
+      msgEl.className = 'ok';
+      document.getElementById('editOld').value = '';
+      document.getElementById('editNew').value = '';
+      document.getElementById('editPreview').style.display = 'none';
+    } else {
+      msgEl.textContent = 'Не сохранилось: ' + (res && res.error || 'неизвестная ошибка');
+      msgEl.className = 'err';
+      btn.disabled = false;
+    }
+  }
+
+  document.getElementById('loginBtn').addEventListener('click', doLogin);
+  document.getElementById('pwInput').addEventListener('keydown', function (e) { if (e.key === 'Enter') doLogin(); });
+  document.getElementById('pwToggle').addEventListener('click', function () {
+    var input = document.getElementById('pwInput');
+    var show = input.type === 'password';
+    input.type = show ? 'text' : 'password';
+    document.getElementById('pwToggle').textContent = show ? 'Скрыть' : 'Показать';
+  });
+  document.getElementById('logoutBtn').addEventListener('click', doLogout);
+  document.getElementById('refreshBtn').addEventListener('click', loadDashboard);
+  document.getElementById('retryBtn').addEventListener('click', loadDashboard);
+  document.getElementById('editPreviewBtn').addEventListener('click', doEditPreview);
+  document.getElementById('editCommitBtn').addEventListener('click', doEditCommit);
+
+  if (getKey()) {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    loadDashboard();
+  }
+</script>
+</body>
+</html>
