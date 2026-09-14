@@ -19,7 +19,12 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+/* Якорь должен останавливаться ниже фиксированной шапки (nav{position:
+   fixed}), иначе цель перехода уезжает под неё и читается уже следующая
+   строка — тот же дефект и та же правка, что на сайте AELITA
+   (pack-v358). Замерено на рендере через локальный сервер: шапка 70px
+   на обоих разрешениях. */
+html{scroll-behavior:smooth;scroll-padding-top:88px}
 body{
   margin:0;
   background:var(--paper);
