@@ -153,7 +153,7 @@ AELITA_pack-v169), адаптирована под относительные п
 идентичны, отдельно не перепроверялись повторно.
 
 ⚠️ При сборке EN для `bychkova` использован **точечный** способ (та
-же одна строка вручную в уже собранный `en/bychkova/index.html`), НЕ
+же одна строка вручную в уже собранный `en/yulia-bychkova/index.html`), НЕ
 `build_en.py --force` — на этой странице есть предсуществующие
 пропуски перевода (не от этой правки, см. категорию `i18n` в
 `_tools/audit.py`), и `--force` в прошлый раз (koroche-pack-v22, при
@@ -443,7 +443,7 @@ Worker (`worker.js`, живёт вне этого репозитория). Ст�
 - [x] ~~Фото Сачкова с Tilda → `assets/img/`.~~ Сделано в `koroche-v4` —
   файл получен напрямую от заказчика (не было в архиве AELITA, откуда
   переносили фото Бычковой), сохранён как `assets/img/sachkov.jpg`,
-  `/sachkov/index.html` больше не ссылается на `thb.tildacdn.com`.
+  `/ivan-sachkov/index.html` больше не ссылается на `thb.tildacdn.com`.
 - [ ] **Параметры оптимизации у видео на Cloudinary.** Три тизера —
   `/instruction/`, `/listen/`, `/stories/` — сейчас без `q_auto`/`f_auto`
   в URL, отдаётся оригинальный файл без автосжатия.
@@ -787,8 +787,8 @@ DOM уже переведённых страниц + добавлено вруч
 
 
 
-Продолжение `koroche-v16`. Переведено ещё 5 страниц: `/en/bychkova/`,
-`/en/sachkov/`, `/en/senokosova/`, `/en/contacts/`, `/en/tickets/`.
+Продолжение `koroche-v16`. Переведено ещё 5 страниц: `/en/yulia-bychkova/`,
+`/en/ivan-sachkov/`, `/en/senokosova/`, `/en/contacts/`, `/en/tickets/`.
 У всех — свой JSON-LD (Person для трёх персон), og/twitter-мета,
 `hreflang` на обеих версиях (ru/en/x-default), переключатель RU/EN.
 

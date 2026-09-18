@@ -15,7 +15,7 @@ const PRECACHE_URLS = [
   '/',
   '/tickets/',
   '/shows/',
-  '/bychkova/',
+  '/yulia-bychkova/',
   '/contacts/',
   '/offline.html',
   '/manifest.json',
