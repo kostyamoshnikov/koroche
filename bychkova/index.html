@@ -17,6 +17,13 @@
      В sitemap.xml НЕ добавляется — там уже стоит новый адрес. -->
 <link rel="canonical" href="https://koroche-dance.ru/yulia-bychkova/">
 <meta name="robots" content="noindex, follow">
+<!-- PRESERVE_QUERY (koroche-pack-v32, порт pack-v422 AELITA): meta-refresh
+     теряет строку запроса — переход по ссылке с ?utm_* приходил на новый
+     адрес без меток и с реферером собственного домена, то есть попадал в
+     Метрике в «прямые заходы». Скрипт выполняется при разборе <head>
+     раньше meta ниже и переносит ?query и #якорь. Без JS — прежний
+     meta-refresh. -->
+<script>(function(){try{var q=location.search||"",h=location.hash||"";if(q||h)location.replace("/yulia-bychkova/"+q+h);}catch(e){}})();</script>
 <meta http-equiv="refresh" content="0; url=/yulia-bychkova/">
 <meta name="theme-color" content="#0A0A0A">
 <style>
@@ -30,6 +37,6 @@
   <p>Страница переехала.</p>
   <p><a href="/yulia-bychkova/">Перейти на страницу Юлии Бычковой →</a></p>
 </div>
-<script>location.replace('/yulia-bychkova/');</script>
+<script>location.replace('/yulia-bychkova/'+location.search+location.hash);</script>
 </body>
 </html>
