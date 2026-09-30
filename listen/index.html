@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=26">
+<link rel="stylesheet" href="../assets/style.css?v=30">
 <style>
   /* ── Hero видео (только на этой странице) ── */
   .hero{background:var(--ink);overflow:hidden}
@@ -61,54 +61,14 @@
     display:flex;align-items:center;gap:8px;
     background:rgba(10,10,10,.6);backdrop-filter:blur(4px);
     border:2px solid var(--paper);color:var(--paper);
-    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
     padding:10px 16px;cursor:pointer;transition:all .25s ease;
   }
-  .teaser-sound-btn:hover{background:var(--blue);border-color:var(--blue)}
+  @media(hover:hover){.teaser-sound-btn:hover{background:var(--blue);border-color:var(--blue)}}
   .mute-line{display:block}
   .teaser-sound-btn.on .mute-line{display:none}
   @media(prefers-reduced-motion:reduce){.hero-video-bg video{display:none}.hero{background:var(--paper)}.hero h1,.hero .hero-eyebrow,.hero .hero-eyebrow::before,.hero .hero-eyebrow::after{color:var(--ink)}.hero .dir,.hero .note{color:var(--grey)}.hero .dir strong{color:var(--ink)}}
 </style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110846274', 'ym');
-
-    ym(110846274, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110846274" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<script type="text/javascript">
-// VK Ads pixel (top.mail.ru counter code) — VK_PIXEL_ID not yet
-// assigned, see Partners/Koroche/README.md ("Аналитика" section) and
-// _tools/Koroche-references.md. Left at 0 on purpose: without a real
-// id the counter would track nothing, so it's skipped until filled in.
-// (Comments live inside <script> so the i18n checker — which strips
-// script/style before scanning for translatable text — never sees
-// them; a plain HTML comment here would otherwise show up as a
-// missing EN translation on every page.)
-(function(){
-  var VK_PIXEL_ID = 0; // fill in after creating the pixel in ads.vk.com
-  if (!VK_PIXEL_ID) return;
-  var _tmr = window._tmr = window._tmr || [];
-  _tmr.push({id: VK_PIXEL_ID, type: "pageView", start: (new Date()).getTime()});
-  (function (d, w, id) {
-    if (d.getElementById(id)) return;
-    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-    ts.src = "https://top-fwz1.mail.ru/js/code.js";
-    var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
-    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-  })(document, window, "topmailru-code");
-  window.KOROCHE_VK_PIXEL_ID = VK_PIXEL_ID;
-})();
-</script>
-
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -145,7 +105,7 @@
 </script>
 </head>
 <body>
-<a class="skip-link" href="#main">Перейти к содержанию</a>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
 <nav>
   <div class="nav-in">
     <a class="logo" href="../index.html">{<span class="bk">короче</span>}</a>
@@ -168,8 +128,8 @@
 <div class="hero" style="min-height:64svh;padding-top:150px;padding-bottom:40px">
   <div class="hero-mark" aria-hidden="true">{ }</div>
   <div class="hero-video-bg">
-    <video autoplay muted loop playsinline preload="auto" id="hero-video" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784386916/9789031385815_pxpilq.jpg">
-      <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/v1784386916/9789031385815_pxpilq.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline preload="auto" id="hero-video" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2,q_auto,w_1280,c_limit/v1784386916/9789031385815_pxpilq.jpg">
+      <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/q_auto,w_1280,c_limit/v1784386916/9789031385815_pxpilq.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-overlay"></div>
@@ -183,10 +143,10 @@
   </button>
   <div class="wrap hero-content">
     <p class="eyebrow hero-eyebrow">Танцевальный спектакль <span class="age">12+</span></p>
-    <h1 style="font-size:clamp(44px,9vw,110px)">Послуш<span class="bk">а</span>йте!</h1>
-    <p class="dir">Режиссёр — <strong><a href="../yulia-bychkova/">Юлия Бычкова</a></strong></p>
+    <h1 style="font-size:clamp(26px,9vw,110px)">Послуш<span class="bk">а</span>йте!</h1>
+    <p class="dir">Режиссёр — <strong><a href="../yulia-bychkova/">Юлия Бычкова</a></strong></p>
     <div class="hero-btns">
-      <a class="btn btn-solid" href="https://t.me/koroche_dance" target="_blank" rel="noopener">Узнать о новых датах</a>
+      <a class="btn btn-solid" href="https://t.me/koroche_dance" target="_blank" rel="noopener">Узнать о новых датах</a>
       <a class="btn btn-line" href="../index.html#repertoire">Весь репертуар</a>
     </div>
   </div>
@@ -195,10 +155,10 @@
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>О проекте</h2>
+      <h2>О проекте</h2>
       <span class="sec-num mono">{ 01 / ЗАМЫСЕЛ }</span>
     </div>
-    <p class="reveal" style="font-size:19px;color:#2A2824;max-width:64ch;line-height:1.75">Интерактивное путешествие по просторам личных чувств, эмоций и наблюдений. Танцевальный спектакль Юлии Бычковой приглашает зрителя стать участником — не наблюдать со стороны, а услышать себя вместе с исполнителями.</p>
+    <p class="reveal" style="font-size:19px;color:#2A2824;max-width:64ch;line-height:1.75">Интерактивное путешествие по просторам личных чувств, эмоций и наблюдений. Танцевальный спектакль Юлии Бычковой приглашает зрителя стать участником — не наблюдать со стороны, а услышать себя вместе с исполнителями.</p>
   </div>
 </section>
 
@@ -209,8 +169,8 @@
       <span class="sec-num mono grey">{ 02 / АФИША }</span>
     </div>
     <div class="no-shows reveal" style="background:#141414;border-color:rgba(250,250,247,.15)">
-      <p style="color:#B4B4AE">Ближайших показов пока нет. Подпишитесь — сообщим о новых датах первыми.</p>
-      <a class="btn btn-line" href="https://t.me/koroche_dance" target="_blank" rel="noopener" style="border-color:var(--paper);color:var(--paper)">Узнать о новых датах</a>
+      <p style="color:#B4B4AE">Ближайших показов пока нет. Подпишитесь — сообщим о новых датах первыми.</p>
+      <a class="btn btn-line" href="https://t.me/koroche_dance" target="_blank" rel="noopener" style="border-color:var(--paper);color:var(--paper)">Узнать о новых датах</a>
     </div>
   </div>
 </section>
@@ -223,12 +183,12 @@
     </div>
     <div class="reveal" style="max-width:760px">
       <div class="video-wrap">
-        <video controls playsinline preload="metadata" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784386916/9789031385815_pxpilq.jpg">
-          <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/v1784386916/9789031385815_pxpilq.mp4" type="video/mp4">
+        <video controls playsinline preload="metadata" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2,q_auto/v1784386916/9789031385815_pxpilq.jpg">
+          <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/q_auto/v1784386916/9789031385815_pxpilq.mp4" type="video/mp4">
         </video>
       </div>
       <p class="video-label">Тизер спектакля «Послушайте»</p>
-      <p class="video-label"><a href="https://vkvideo.ru/video-229246987_456239071" target="_blank" rel="noopener">Смотреть в ВКонтакте →</a></p>
+      <p class="video-label"><a href="https://vkvideo.ru/video-229246987_456239071?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=listen" target="_blank" rel="noopener">Смотреть в ВКонтакте →</a></p>
     </div>
   </div>
 </section>
@@ -240,8 +200,8 @@
       <span class="sec-num mono grey">{ РЕПЕРТУАР }</span>
     </div>
     <div class="other-grid reveal">
-      <a class="other-card" href="../stories/"><span class="tag">Пластический спектакль</span><h3>Сюжеты. О земном и небесном</h3><p>Гастрольный спектакль, Новая сцена Александринского театра. 12+</p></a>
-      <a class="other-card" href="../instruction/"><span class="tag">Совместный проект</span><h3>Инструкция для начинающих странников</h3><p>Совместный проект «Короче» и «Забавы». 12+</p></a>
+      <a class="other-card" href="../stories/"><span class="tag">Пластический спектакль</span><h3>Сюжеты. О земном и небесном</h3><p>Гастрольный спектакль, Новая сцена Александринского театра. 12+</p></a>
+      <a class="other-card" href="../instruction/"><span class="tag">Совместный проект</span><h3>Инструкция для начинающих странников</h3><p>Совместный проект «Короче» и «Забавы». 12+</p></a>
       <a class="other-card" href="../shows/"><span class="tag">Премьера состоялась</span><h3>Археология человеческого</h3><p>Вечер малых форм современного танца. 12+</p></a>
     </div>
   </div>
@@ -261,13 +221,13 @@
     <div class="foot-grid">
       <div>
         <a class="foot-logo" href="../index.html">{<span class="bk">короче</span>}</a>
-        <p class="foot-desc">Неорганизованная танцевальная компания. На языке современного танца с 2020 года.</p>
+        <p class="foot-desc">Неорганизованная танцевальная компания. На языке современного танца с 2020 года.</p>
         <a href="mailto:aelita.production@yandex.ru">aelita.production@yandex.ru</a>
         <a href="tel:+79605151690">+7 960 515-16-90</a>
       </div>
       <div>
         <h4>Компания</h4>
-        <a href="../index.html#about">О компании</a>
+        <a href="../index.html#about">О компании</a>
         <a href="../index.html#repertoire">Репертуар</a>
         <a href="../yulia-bychkova/">Юлия Бычкова</a>
         <a href="../contacts/">Контакты</a>
@@ -281,13 +241,13 @@
       </div>
       <div>
         <h4>Соцсети</h4>
-        <a href="https://vk.com/koroche_dance" target="_blank" rel="noopener">ВКонтакте — @koroche_dance</a>
-        <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
-        <a href="https://aelita-production.ru" target="_blank" rel="noopener">Партнёр: AELITA PRODUCTION</a>
+        <a href="https://vk.com/koroche_dance?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=listen" target="_blank" rel="noopener">ВКонтакте — @koroche_dance</a>
+        <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
+        <a href="https://aelita-production.ru/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=listen" target="_blank" rel="noopener">Партнёр: AELITA PRODUCTION</a>
       </div>
     </div>
     <div class="requisites">
-      Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
+      Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
       ОГРН 1254000006644 · ИНН 4000027320 · © 2026 «Короче»<br>
       <a href="../oferta/">Оферта</a> · <a href="../visiting-rules/">Правила посещения</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a> · <a href="../documents/">Все документы</a>
     </div>
@@ -302,13 +262,14 @@
     <a href="../shows/" onclick="toggleMenu()">Археология человеческого</a>
     <a href="../yulia-bychkova/" onclick="toggleMenu()">Бычкова</a>
     <a href="../contacts/" onclick="toggleMenu()">Контакты</a>
+    <a href="../en/listen/" class="lang-switch" onclick="toggleMenu()">EN — English version</a>
   </nav>
   <div class="m-menu-foot">{короче} · неорганизованная танцевальная компания</div>
 </div>
 
 <!-- Cookie Banner -->
 <div id="cookie-banner">
-  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
+  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
   <div class="cookie-actions">
     <button class="cookie-btn cookie-btn-more" onclick="window.location.href='../cookies/'">Подробнее</button>
     <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
@@ -318,16 +279,16 @@
 
 <!-- Telegram виджет -->
 <div class="tg-widget" id="tg-widget">
-  <div class="tg-bubble" id="tg-bubble">Напишите нам — бот ответит мгновенно</div>
+  <div class="tg-bubble" id="tg-bubble">Напишите нам — бот ответит мгновенно</div>
   <a class="tg-btn" href="https://t.me/koroche_dance_bot" target="_blank" rel="noopener" aria-label="Написать в Telegram">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.093 13.68l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.836.88h.219z"/></svg>
     Написать нам
   </a>
 </div>
 
-<script src="/assets/analytics-events.js?v=26"></script>
-<script src="../assets/main.js?v=26"></script>
-<script src="../assets/reviews.js?v=26"></script>
+<script src="/assets/analytics-events.js?v=30"></script>
+<script src="../assets/main.js?v=30"></script>
+<script src="../assets/reviews.js?v=30"></script>
 <script>KorocheReviews.init('listen');</script>
 </body>
 </html>

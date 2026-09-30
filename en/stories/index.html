@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/style.css?v=26">
+<link rel="stylesheet" href="../../assets/style.css?v=30">
 <style>
   /* ── Hero видео (только на этой странице) ── */
   .hero{background:var(--ink);overflow:hidden}
@@ -61,82 +61,42 @@
     display:flex;align-items:center;gap:8px;
     background:rgba(10,10,10,.6);backdrop-filter:blur(4px);
     border:2px solid var(--paper);color:var(--paper);
-    font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
     padding:10px 16px;cursor:pointer;transition:all .25s ease;
   }
-  .teaser-sound-btn:hover{background:var(--blue);border-color:var(--blue)}
+  @media(hover:hover){.teaser-sound-btn:hover{background:var(--blue);border-color:var(--blue)}}
   .mute-line{display:block}
   .teaser-sound-btn.on .mute-line{display:none}
   @media(prefers-reduced-motion:reduce){.hero-video-bg video{display:none}.hero{background:var(--paper)}.hero h1,.hero .hero-eyebrow,.hero .hero-eyebrow::before,.hero .hero-eyebrow::after{color:var(--ink)}.hero .dir,.hero .note{color:var(--grey)}.hero .dir strong{color:var(--ink)}}
 </style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110846274', 'ym');
-
-    ym(110846274, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110846274" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<script type="text/javascript">
-// VK Ads pixel (top.mail.ru counter code) — VK_PIXEL_ID not yet
-// assigned, see Partners/Koroche/README.md ("Аналитика" section) and
-// _tools/Koroche-references.md. Left at 0 on purpose: without a real
-// id the counter would track nothing, so it's skipped until filled in.
-// (Comments live inside <script> so the i18n checker — which strips
-// script/style before scanning for translatable text — never sees
-// them; a plain HTML comment here would otherwise show up as a
-// missing EN translation on every page.)
-(function(){
-  var VK_PIXEL_ID = 0; // fill in after creating the pixel in ads.vk.com
-  if (!VK_PIXEL_ID) return;
-  var _tmr = window._tmr = window._tmr || [];
-  _tmr.push({id: VK_PIXEL_ID, type: "pageView", start: (new Date()).getTime()});
-  (function (d, w, id) {
-    if (d.getElementById(id)) return;
-    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-    ts.src = "https://top-fwz1.mail.ru/js/code.js";
-    var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
-    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-  })(document, window, "topmailru-code");
-  window.KOROCHE_VK_PIXEL_ID = VK_PIXEL_ID;
-})();
-</script>
-
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "VideoObject",
-      "name": "Тизер спектакля «Сюжеты. О земном и небесном»",
-      "description": "Тизер пластического спектакля Юлии Бычковой и танцевальной компании «Короче». Гастрольный показ на Новой сцене Александринского театра.",
+      "name": "Teaser for “Stories. Of the Earthly and the Heavenly”",
+      "description": "Teaser for the physical theatre piece by Yulia Bychkova and dance company “Koroche”. Toured at the New Stage of the Alexandrinsky Theatre.",
       "thumbnailUrl": "https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.jpg",
       "uploadDate": "2026-07-18",
       "contentUrl": "https://res.cloudinary.com/kostyamoshnikov/video/upload/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.mp4",
       "embedUrl": "https://vkvideo.ru/video_ext.php?oid=-229246987&id=456239075&hd=2",
       "publisher": {
         "@type": "Organization",
-        "name": "{короче}",
+        "name": "{koroche}",
         "url": "https://koroche-dance.ru"
       }
     },
     {
       "@type": "DanceEvent",
-      "@id": "https://koroche-dance.ru/stories/#event",
-      "name": "Сюжеты. О земном и небесном",
-      "description": "Пластический спектакль Юлии Бычковой и танцевальной компании «Короче». Гастрольный показ на Новой сцене Александринского театра.",
-      "url": "https://koroche-dance.ru/stories/",
+      "@id": "https://koroche-dance.ru/en/stories/#event",
+      "name": "Stories. Of the Earthly and the Heavenly",
+      "description": "A physical theatre piece by Yulia Bychkova and dance company “Koroche”. Toured at the New Stage of the Alexandrinsky Theatre.",
+      "url": "https://koroche-dance.ru/en/stories/",
       "image": "https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.jpg",
       "organizer": {
         "@type": "Organization",
-        "name": "{короче}",
+        "name": "{koroche}",
         "url": "https://koroche-dance.ru"
       }
     }
@@ -156,7 +116,8 @@
       <a href="../shows/">Archaeology of the Human</a>
       <a href="../yulia-bychkova/">Bychkova</a>
       <a href="../contacts/">Contact</a>
-    <a href="../stories/" class="lang-switch" style="opacity:.6">RU</a></div>
+    </div>
+    <a href="../../stories/" class="lang-switch" style="opacity:.6">RU</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -167,8 +128,8 @@
 <div class="hero" style="min-height:64svh;padding-top:150px;padding-bottom:40px">
   <div class="hero-mark" aria-hidden="true">{ }</div>
   <div class="hero-video-bg">
-    <video autoplay muted loop playsinline preload="auto" id="hero-video" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.jpg">
-      <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline preload="auto" id="hero-video" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2,q_auto,w_1280,c_limit/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.jpg">
+      <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/q_auto,w_1280,c_limit/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.mp4" type="video/mp4">
     </source></video>
   </div>
   <div class="hero-overlay"></div>
@@ -182,7 +143,7 @@
   </button>
   <div class="wrap hero-content">
     <p class="eyebrow hero-eyebrow">Physical theatre <span class="age">12+</span></p>
-    <h1 style="font-size:clamp(38px,7.4vw,92px)">Stor<span class="bk">е</span>ты.<br>Of the Earthly and the Heavenly</h1>
+    <h1 style="font-size:clamp(26px,7.4vw,92px)">Stori<span class="bk">e</span>s.<br>Of the Earthly and the Heavenly</h1>
     <p class="dir">Director — <strong><a href="../yulia-bychkova/">Yulia Bychkova</a></strong> and dance company “Koroche”</p>
     <p class="note">Toured at the New Stage of the Alexandrinsky Theatre, St. Petersburg.</p>
     <div class="hero-btns">
@@ -231,12 +192,12 @@
     </div>
     <div class="reveal" style="max-width:760px">
       <div class="video-wrap">
-        <video controls playsinline preload="metadata" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.jpg">
-          <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.mp4" type="video/mp4">
+        <video controls playsinline preload="metadata" poster="https://res.cloudinary.com/kostyamoshnikov/video/upload/so_2,q_auto/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.jpg">
+          <source src="https://res.cloudinary.com/kostyamoshnikov/video/upload/q_auto/v1784388714/%D0%A1%D0%AE%D0%96%D0%95%D0%A2%D0%AB._%D0%9E_%D0%97%D0%95%D0%9C%D0%9D%D0%9E%D0%9C_%D0%98_%D0%9D%D0%95%D0%91%D0%95%D0%A1%D0%9D%D0%9E%D0%9C_-_%D0%A2%D0%B8%D0%B7%D0%B5%D1%80_2_AELITA_PRODU%D0%A1TION_%D0%90%D0%AD%D0%9B%D0%98%D0%A2%D0%90_%D0%9F%D0%A0%D0%9E%D0%94%D0%90%D0%9A%D0%A8%D0%95%D0%9D_popj7k.mp4" type="video/mp4">
         </source></video>
       </div>
       <p class="video-label">Teaser for “Stories. Of the Earthly and the Heavenly”</p>
-      <p class="video-label"><a href="https://vkvideo.ru/video-229246987_456239075" target="_blank" rel="noopener">Watch on VK →</a></p>
+      <p class="video-label"><a href="https://vkvideo.ru/video-229246987_456239075?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_stories" target="_blank" rel="noopener">Watch on VK →</a></p>
     </div>
   </div>
 </section>
@@ -302,9 +263,9 @@
       </div>
       <div>
         <h4>Social</h4>
-        <a href="https://vk.com/koroche_dance" target="_blank" rel="noopener">VK — @koroche_dance</a>
+        <a href="https://vk.com/koroche_dance?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_stories" target="_blank" rel="noopener">VK — @koroche_dance</a>
         <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
-        <a href="https://aelita-production.ru" target="_blank" rel="noopener">Partner: AELITA PRODUCTION</a>
+        <a href="https://aelita-production.ru/en/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_stories" target="_blank" rel="noopener">Partner: AELITA PRODUCTION</a>
       </div>
     </div>
     <div class="requisites">
@@ -323,7 +284,7 @@
     <a href="../shows/" onclick="toggleMenu()">Archaeology of the Human</a>
     <a href="../yulia-bychkova/" onclick="toggleMenu()">Bychkova</a>
     <a href="../contacts/" onclick="toggleMenu()">Contact</a>
-  <a href="../stories/" class="lang-switch" onclick="toggleMenu()">RU — Russian version</a></nav>
+    <a href="../../stories/" class="lang-switch" onclick="toggleMenu()">RU — Russian version</a></nav>
   <div class="m-menu-foot">{koroche} · an unorganized dance company</div>
 </div>
 
@@ -346,9 +307,9 @@
   </a>
 </div>
 
-<script src="/assets/analytics-events.js?v=26"></script>
-<script src="../../assets/main.js?v=26"></script>
-<script src="../../assets/reviews.js?v=26"></script>
+<script src="/assets/analytics-events.js?v=30"></script>
+<script src="../../assets/main.js?v=30"></script>
+<script src="../../assets/reviews.js?v=30"></script>
 <script>KorocheReviews.init('stories');</script>
 </body>
 </html>

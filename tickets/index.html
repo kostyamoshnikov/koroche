@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=26">
+<link rel="stylesheet" href="../assets/style.css?v=30">
 <style>
   .notify-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap}
   .notify-tab{
@@ -42,51 +42,12 @@
     padding:10px 18px;cursor:pointer;transition:all .2s ease;
   }
   .notify-tab.active{border-color:var(--paper);color:var(--paper)}
-  .notify-tab:hover{border-color:var(--paper);color:var(--paper)}
+  @media(hover:hover){.notify-tab:hover{border-color:var(--paper);color:var(--paper)}}
   .notify-bot-note{color:#B4B4AE;font-size:13px;margin-top:14px}
 </style>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110846274', 'ym');
-
-    ym(110846274, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110846274" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<script type="text/javascript">
-// VK Ads pixel (top.mail.ru counter code) — VK_PIXEL_ID not yet
-// assigned, see Partners/Koroche/README.md ("Аналитика" section) and
-// _tools/Koroche-references.md. Left at 0 on purpose: without a real
-// id the counter would track nothing, so it's skipped until filled in.
-// (Comments live inside <script> so the i18n checker — which strips
-// script/style before scanning for translatable text — never sees
-// them; a plain HTML comment here would otherwise show up as a
-// missing EN translation on every page.)
-(function(){
-  var VK_PIXEL_ID = 0; // fill in after creating the pixel in ads.vk.com
-  if (!VK_PIXEL_ID) return;
-  var _tmr = window._tmr = window._tmr || [];
-  _tmr.push({id: VK_PIXEL_ID, type: "pageView", start: (new Date()).getTime()});
-  (function (d, w, id) {
-    if (d.getElementById(id)) return;
-    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-    ts.src = "https://top-fwz1.mail.ru/js/code.js";
-    var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
-    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-  })(document, window, "topmailru-code");
-  window.KOROCHE_VK_PIXEL_ID = VK_PIXEL_ID;
-})();
-</script>
-
 </head>
 <body>
-<a class="skip-link" href="#main">Перейти к содержанию</a>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
 <nav>
   <div class="nav-in">
     <a class="logo" href="../index.html">{<span class="bk">короче</span>}</a>
@@ -110,7 +71,7 @@
   <div class="hero-mark" aria-hidden="true">{ }</div>
   <div class="wrap hero-content">
     <p class="eyebrow hero-eyebrow">расписание</p>
-    <h1 style="font-size:clamp(42px,8vw,100px)">Аф<span class="bk">и</span>ша и билеты</h1>
+    <h1 style="font-size:clamp(26px,8vw,100px)">Аф<span class="bk">и</span>ша и билеты</h1>
   </div>
 </div>
 
@@ -126,15 +87,15 @@
       <div class="event" data-city="kaluga">
         <div class="ev-date">10.10<small>сб · 18:00</small></div>
         <div class="ev-info">
-          <h3><a href="https://aelita-production.ru/bred/" target="_blank" rel="noopener">{И весь этот бред тоже}</a></h3>
-          <p>Танц-перформанс Антона Вдовиченко · 30 минут · 18+</p>
-          <p>После показа — обсуждение с Антоном Вдовиченко</p>
-          <p>Дом архитектора, Калуга · 1000 ₽</p>
-          <p class="fest">в программе «Короче» · спектакль AELITA PRODUCTION</p>
+          <h3><a href="https://aelita-production.ru/bred/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">{И весь этот бред тоже}</a></h3>
+          <p>Танц-перформанс Антона Вдовиченко · 30 минут · 18+</p>
+          <p>После показа — обсуждение с Антоном Вдовиченко</p>
+          <p>Дом архитектора, Калуга · 1000 ₽</p>
+          <p class="fest">в программе «Короче» · спектакль AELITA PRODUCTION</p>
         </div>
         <div class="ev-actions">
-          <a class="btn btn-solid" href="https://aelita-production.ru/tickets-buy/?performance=bred-2026-10-10" target="_blank" rel="noopener">Купить билет</a>
-          <a class="btn btn-line" href="https://aelita-production.ru/bred/" target="_blank" rel="noopener">О спектакле</a>
+          <a class="btn btn-solid" href="https://aelita-production.ru/tickets-buy/?performance=bred-2026-10-10&amp;utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">Купить билет</a>
+          <a class="btn btn-line" href="https://aelita-production.ru/bred/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">О спектакле</a>
         </div>
       </div>
     </div>
@@ -143,9 +104,9 @@
 
 <div class="notify" id="subscribe">
   <div class="wrap reveal">
-    <p class="eyebrow">не пропустить</p>
-    <h2>Узнайте о новых датах первыми</h2>
-    <p>Оставьте заявку так, как удобнее — на сайте или в Telegram-боте.</p>
+    <p class="eyebrow">не пропустить</p>
+    <h2>Узнайте о новых датах первыми</h2>
+    <p>Оставьте заявку так, как удобнее — на сайте или в Telegram-боте.</p>
 
     <div class="notify-tabs" id="notifyTabs">
       <button type="button" class="notify-tab active" data-tab="site" onclick="switchNotifyTab('site', this)">Через сайт</button>
@@ -153,19 +114,24 @@
     </div>
 
     <div id="notifySite">
+      <div class="notify-fields">
+        <input type="text" id="subName" placeholder="Ваше имя *" aria-label="Имя (обязательно)" autocomplete="name" required>
+        <input type="tel" id="subPhone" inputmode="tel" autocomplete="tel" placeholder="Телефон *" aria-label="Телефон (обязательно)" required>
+      </div>
       <div class="sub-form">
-        <input type="email" id="subEmail" placeholder="Ваша почта" aria-label="Электронная почта">
+        <input type="email" id="subEmail" placeholder="Почта — по желанию" aria-label="Электронная почта (по желанию)" autocomplete="email">
         <!-- honeypot: invisible to people, bots that auto-fill every field trip it -->
         <input type="text" id="subWebsite" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0" value="">
         <input type="hidden" id="subFormLoaded" value="">
-        <button onclick="subscribeEmail()">Подписаться</button>
+        <button type="button" id="subBtn" onclick="KOROCHE_subscribe()">Подписаться</button>
       </div>
-      <p class="sub-ok" id="subOk">Готово — напишем о новых датах.</p>
+      <label class="sub-consent"><input type="checkbox" id="subConsent"><span>Согласен(на) на обработку персональных данных по <a href="../privacy/">политике конфиденциальности</a> *</span></label>
+      <p class="sub-ok" id="subOk">Готово — напишем о новых датах.</p>
     </div>
 
     <div id="notifyBot" style="display:none">
-      <a class="btn btn-line" style="border-color:var(--paper);color:var(--paper)" href="https://t.me/koroche_dance_bot?start=tickets" target="_blank" rel="noopener">Открыть бота и оставить заявку</a>
-      <p class="notify-bot-note">Бот задаст пару вопросов о показе и передаст заявку нам напрямую.</p>
+      <a class="btn btn-line" style="border-color:var(--paper);color:var(--paper)" href="https://t.me/koroche_dance_bot?start=tickets" target="_blank" rel="noopener">Открыть бота и оставить заявку</a>
+      <p class="notify-bot-note">Напишите боту, какой показ и город вас интересуют, — он передаст сообщение нам напрямую.</p>
     </div>
   </div>
 </div>
@@ -187,8 +153,8 @@
     </div>
     <div class="other-grid reveal">
       <a class="other-card" href="../shows/"><span class="tag">Премьера состоялась</span><h3>Археология человеческого</h3><p>Вечер малых форм современного танца. 12+</p></a>
-      <a class="other-card" href="../stories/"><span class="tag">Пластический спектакль</span><h3>Сюжеты. О земном и небесном</h3><p>Новая сцена Александринского театра. 12+</p></a>
-      <a class="other-card" href="../listen/"><span class="tag">Танцевальный спектакль</span><h3>Послушайте!</h3><p>Интерактивное путешествие по просторам личных чувств. 12+</p></a>
+      <a class="other-card" href="../stories/"><span class="tag">Пластический спектакль</span><h3>Сюжеты. О земном и небесном</h3><p>Новая сцена Александринского театра. 12+</p></a>
+      <a class="other-card" href="../listen/"><span class="tag">Танцевальный спектакль</span><h3>Послушайте!</h3><p>Интерактивное путешествие по просторам личных чувств. 12+</p></a>
     </div>
   </div>
 </section>
@@ -199,13 +165,13 @@
     <div class="foot-grid">
       <div>
         <a class="foot-logo" href="../index.html">{<span class="bk">короче</span>}</a>
-        <p class="foot-desc">Неорганизованная танцевальная компания. На языке современного танца с 2020 года.</p>
+        <p class="foot-desc">Неорганизованная танцевальная компания. На языке современного танца с 2020 года.</p>
         <a href="mailto:aelita.production@yandex.ru">aelita.production@yandex.ru</a>
         <a href="tel:+79605151690">+7 960 515-16-90</a>
       </div>
       <div>
         <h4>Компания</h4>
-        <a href="../index.html#about">О компании</a>
+        <a href="../index.html#about">О компании</a>
         <a href="../index.html#repertoire">Репертуар</a>
         <a href="../yulia-bychkova/">Юлия Бычкова</a>
         <a href="../contacts/">Контакты</a>
@@ -219,13 +185,13 @@
       </div>
       <div>
         <h4>Соцсети</h4>
-        <a href="https://vk.com/koroche_dance" target="_blank" rel="noopener">ВКонтакте — @koroche_dance</a>
-        <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
-        <a href="https://aelita-production.ru" target="_blank" rel="noopener">Партнёр: AELITA PRODUCTION</a>
+        <a href="https://vk.com/koroche_dance?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">ВКонтакте — @koroche_dance</a>
+        <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
+        <a href="https://aelita-production.ru/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">Партнёр: AELITA PRODUCTION</a>
       </div>
     </div>
     <div class="requisites">
-      Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
+      Танцевальная компания «Короче» работает в партнёрстве с ООО «АЭЛИТА ПРОДАКШЕН» · 248016, Калужская область, г. Калуга, ул. Ленина, д. 51<br>
       ОГРН 1254000006644 · ИНН 4000027320 · © 2026 «Короче»<br>
       <a href="../oferta/">Оферта</a> · <a href="../visiting-rules/">Правила посещения</a> · <a href="../privacy/">Конфиденциальность</a> · <a href="../cookies/">Cookies</a> · <a href="../bot/">Бот</a> · <a href="../documents/">Все документы</a>
     </div>
@@ -240,14 +206,14 @@
     <a href="../shows/" onclick="toggleMenu()">Археология человеческого</a>
     <a href="../yulia-bychkova/" onclick="toggleMenu()">Бычкова</a>
     <a href="../contacts/" onclick="toggleMenu()">Контакты</a>
-      <a href="../en/tickets/" class="lang-switch" onclick="toggleMenu()">EN — English version</a>
+      <a href="../en/tickets/" class="lang-switch" onclick="toggleMenu()">EN — English version</a>
   </nav>
   <div class="m-menu-foot">{короче} · неорганизованная танцевальная компания</div>
 </div>
 
 <!-- Cookie Banner -->
 <div id="cookie-banner">
-  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
+  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
   <div class="cookie-actions">
     <button class="cookie-btn cookie-btn-more" onclick="window.location.href='../cookies/'">Подробнее</button>
     <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
@@ -263,90 +229,18 @@
       e.style.display = (city === 'all' || e.dataset.city === city) ? 'grid' : 'none';
     });
   }
-
-  const TG_WORKER = 'https://withered-glade-64b6.kostyamoshnikov.workers.dev';
-  const FORMSPREE_URL = 'https://formspree.io/f/meeyowpw';
-
-  async function sendFormspree(formName, fields) {
-    try {
-      var data = new FormData();
-      data.append('_subject', '[KOROCHE] ' + formName);
-      var keys = Object.keys(fields);
-      for (var i = 0; i < keys.length; i++) {
-        data.append(keys[i], String(fields[keys[i]] || '').trim());
-      }
-      await fetch(FORMSPREE_URL, {
-        method: 'POST',
-        body: data,
-        headers: {'Accept': 'application/json'}
-      });
-    } catch(e) { console.log('Formspree error:', e); }
-  }
-
-  async function sendTelegram(formName, fields) {
-    var lines = ['[KOROCHE] ' + formName, ''];
-    var keys = Object.keys(fields);
-    for (var i = 0; i < keys.length; i++) {
-      var label = keys[i];
-      var value = String(fields[label] || '').trim();
-      if (value) lines.push('<b>' + label + ':</b> ' + value);
-    }
-    lines.push('');
-    lines.push(new Date().toLocaleString('ru-RU', {timeZone:'Europe/Moscow'}));
-    var msgText = lines.join('\n');
-    try {
-      await fetch(TG_WORKER, {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({text: msgText})
-      });
-    } catch(e) { console.log('TG error:', e); }
-  }
-
-  async function subscribeEmail(){
-    const input = document.getElementById('subEmail');
-    const v = input.value.trim();
-    if(!v || !v.includes('@')) return;
-
-    // Honeypot: реальные люди это поле не видят и не заполняют.
-    // Заполнено — значит бот, тихо выходим, как будто всё прошло успешно.
-    const honeypot = document.getElementById('subWebsite');
-    if (honeypot && honeypot.value) {
-      input.value = '';
-      const ok = document.getElementById('subOk');
-      if (ok) ok.style.display = 'block';
-      return;
-    }
-
-    // Time-trap: живой человек не успевает найти поле и отправить форму
-    // быстрее чем за 1.5 секунды после загрузки страницы — типичные боты успевают.
-    const loadedInput = document.getElementById('subFormLoaded');
-    const loadedAt = Number((loadedInput && loadedInput.value) || 0);
-    if (loadedAt && (Date.now() - loadedAt) < 1500) return;
-
-    await sendTelegram('Билеты — подписка на новые даты', {'Email': v});
-    await sendFormspree('Билеты — подписка на новые даты', {'Email': v});
-    const ok = document.getElementById('subOk');
-    if(ok) ok.style.display = 'block';
-    input.value = '';
-  }
-
-  (function(){
-    var el = document.getElementById('subFormLoaded');
-    if (el) el.value = String(Date.now());
-  })();
 </script>
 
 <!-- Telegram виджет -->
 <div class="tg-widget" id="tg-widget">
-  <div class="tg-bubble" id="tg-bubble">Напишите нам — бот ответит мгновенно</div>
+  <div class="tg-bubble" id="tg-bubble">Напишите нам — бот ответит мгновенно</div>
   <a class="tg-btn" href="https://t.me/koroche_dance_bot" target="_blank" rel="noopener" aria-label="Написать в Telegram">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.093 13.68l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.836.88h.219z"/></svg>
     Написать нам
   </a>
 </div>
 
-<script src="/assets/analytics-events.js?v=26"></script>
-<script src="../assets/main.js?v=26"></script>
+<script src="/assets/analytics-events.js?v=30"></script>
+<script src="../assets/main.js?v=30"></script>
 </body>
 </html>

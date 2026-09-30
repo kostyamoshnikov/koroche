@@ -33,69 +33,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=26">
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110846274', 'ym');
-
-    ym(110846274, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110846274" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<script type="text/javascript">
-// VK Ads pixel (top.mail.ru counter code) — VK_PIXEL_ID not yet
-// assigned, see Partners/Koroche/README.md ("Аналитика" section) and
-// _tools/Koroche-references.md. Left at 0 on purpose: without a real
-// id the counter would track nothing, so it's skipped until filled in.
-// (Comments live inside <script> so the i18n checker — which strips
-// script/style before scanning for translatable text — never sees
-// them; a plain HTML comment here would otherwise show up as a
-// missing EN translation on every page.)
-(function(){
-  var VK_PIXEL_ID = 0; // fill in after creating the pixel in ads.vk.com
-  if (!VK_PIXEL_ID) return;
-  var _tmr = window._tmr = window._tmr || [];
-  _tmr.push({id: VK_PIXEL_ID, type: "pageView", start: (new Date()).getTime()});
-  (function (d, w, id) {
-    if (d.getElementById(id)) return;
-    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-    ts.src = "https://top-fwz1.mail.ru/js/code.js";
-    var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
-    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-  })(document, window, "topmailru-code");
-  window.KOROCHE_VK_PIXEL_ID = VK_PIXEL_ID;
-})();
-</script>
-
-
+<link rel="stylesheet" href="../assets/style.css?v=30">
 <!-- Structured data: Organization -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "PerformingGroup",
-  "name": "{короче}",
-  "alternateName": "Короче",
+  "name": "{koroche}",
+  "alternateName": "Koroche",
   "url": "https://koroche-dance.ru",
   "logo": "https://koroche-dance.ru/assets/img/logo-black.jpg",
-  "description": "Неорганизованная танцевальная компания. На языке современного танца с 2020 года — тело как главный инструмент высказывания.",
+  "description": "An unorganized dance company. Speaking the language of contemporary dance since 2020 — the body as the primary instrument of expression.",
   "email": "aelita.production@yandex.ru",
   "telephone": "+79605151690",
   "foundingDate": "2020",
   "founder": {
     "@type": "Person",
-    "name": "Юлия Бычкова"
+    "name": "Yulia Bychkova"
   },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "ул. Ленина, д. 51",
-    "addressLocality": "Калуга",
-    "addressRegion": "Калужская область",
+    "streetAddress": "51 Lenina St.",
+    "addressLocality": "Kaluga",
+    "addressRegion": "Kaluga Oblast",
     "postalCode": "248016",
     "addressCountry": "RU"
   },
@@ -118,7 +78,8 @@
       <a href="shows/">Archaeology of the Human</a>
       <a href="yulia-bychkova/">Bychkova</a>
       <a href="contacts/">Contact</a>
-      <a href="index.html" class="lang-switch" style="opacity:.6">RU</a></div>
+      </div>
+    <a href="../" class="lang-switch" style="opacity:.6">RU</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -156,8 +117,10 @@
     </div>
     <div class="about-grid reveal">
       <div class="about-text">
-        <p>The company <strong><a href="yulia-bychkova/">Yulia Bychkova</a></strong> founded the company in 2020. Since then the repertoire has grown to more than five productions — all made in the language of contemporary dance, where the body speaks without translation.</p>
+        <p class="txt-lead">The company <strong><a href="yulia-bychkova/">Yulia Bychkova</a></strong> founded the company in 2020. Since then the repertoire has grown to more than five productions — all made in the language of contemporary dance, where the body speaks without translation.</p>
+        <p class="txt-kicker">First tour</p>
         <p>On 4 October 2025 the young, fast-growing company {koroche} took its first tour to St. Petersburg: the show "Stories. Of the Earthly and the Heavenly" played to a warm reception at the New Stage of the Alexandrinsky Theatre.</p>
+        <p class="txt-kicker">2026 premiere</p>
         <p>In 2026 {koroche} premiered <a href="shows/">"Archaeology of the Human"</a>— an evening of short-form contemporary dance in three independent statements.</p>
         <p>What has been written about us — <a href="mentions/">press mentions →</a></p>
       </div>
@@ -167,7 +130,7 @@
         <div class="stat-row"><span class="lbl">Productions</span><span class="val">8+</span></div>
         <div class="stat-row"><span class="lbl">Artistic director</span><span class="val"><a href="yulia-bychkova/" style="color:inherit">Yulia Bychkova</a></span></div>
         <div class="stat-row"><span class="lbl">Touring</span><span class="val">St. Petersburg, Alexandrinsky Theatre New Stage</span></div>
-        <div class="stat-row"><span class="lbl">Partner</span><span class="val"><a href="https://aelita-production.ru" style="color:inherit">AELITA PRODUCTION</a></span></div>
+        <div class="stat-row"><span class="lbl">Partner</span><span class="val"><a href="https://aelita-production.ru/en/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_home" style="color:inherit">AELITA PRODUCTION</a></span></div>
       </div>
     </div>
   </div>
@@ -279,19 +242,19 @@
         <span class="review-mark">"</span>
         <p class="review-text">If I could, I'd come back again — especially to revisit so much of it after the discussion. Thank you for this work and the emotions it brought.</p>
         <p class="review-author">Anna Geraskina</p>
-        <p class="review-show"><a href="https://aelita-production.ru/en/stories">"Stories. Of the Earthly and the Heavenly"</a></p>
+        <p class="review-show"><a href="https://aelita-production.ru/en/stories?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_home">"Stories. Of the Earthly and the Heavenly"</a></p>
       </div>
       <div class="review">
         <span class="review-mark">"</span>
         <p class="review-text">The dance never stops for the whole show, no dead spots, it plays as one whole piece. There's ritual in it, and narrative, and an exploration of gender roles.</p>
         <p class="review-author">Natalia Zhiltsova</p>
-        <p class="review-show">FAUN CONTEMPORARY · <a href="https://aelita-production.ru/en/stories">"Stories. Of the Earthly and the Heavenly"</a></p>
+        <p class="review-show">FAUN CONTEMPORARY · <a href="https://aelita-production.ru/en/stories?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_home">"Stories. Of the Earthly and the Heavenly"</a></p>
       </div>
       <div class="review">
         <span class="review-mark">"</span>
         <p class="review-text">Watching it a second time felt like the first. The director brought many in the audience to tears. And, as always, the aftertaste stays with you for a long time.</p>
         <p class="review-author">Svetlana Vartanova</p>
-        <p class="review-show"><a href="https://aelita-production.ru/en/instruction">"A Guide for Novice Wanderers"</a></p>
+        <p class="review-show"><a href="https://aelita-production.ru/en/instruction?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_home">"A Guide for Novice Wanderers"</a></p>
       </div>
       <div class="review">
         <span class="review-mark">"</span>
@@ -385,9 +348,9 @@
       </div>
       <div>
         <h4>Social</h4>
-        <a href="https://vk.com/koroche_dance" target="_blank" rel="noopener">VK — @koroche_dance</a>
+        <a href="https://vk.com/koroche_dance?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_home" target="_blank" rel="noopener">VK — @koroche_dance</a>
         <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
-        <a href="https://aelita-production.ru" target="_blank" rel="noopener">Partner: AELITA PRODUCTION</a>
+        <a href="https://aelita-production.ru/en/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_home" target="_blank" rel="noopener">Partner: AELITA PRODUCTION</a>
       </div>
     </div>
     <div class="requisites">
@@ -406,7 +369,7 @@
     <a href="shows/" onclick="toggleMenu()">Archaeology of the Human</a>
     <a href="yulia-bychkova/" onclick="toggleMenu()">Bychkova</a>
     <a href="contacts/" onclick="toggleMenu()">Contact</a>
-    <a href="index.html" class="lang-switch" onclick="toggleMenu()">RU — Russian version</a></nav>
+    <a href="../" class="lang-switch" onclick="toggleMenu()">RU — Russian version</a></nav>
   <div class="m-menu-foot">{koroche} · an unorganized dance company</div>
 </div>
 
@@ -418,28 +381,9 @@
     <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept</button>
   </div>
 </div>
-<script>
-  (function(){
-    if(localStorage.getItem('cookies_accepted')){
-      var b=document.getElementById('cookie-banner');
-      if(b) b.style.display='none';
-    }
-  })();
-  function acceptCookies(){
-    localStorage.setItem('cookies_accepted','1');
-    var b=document.getElementById('cookie-banner');
-    if(b){b.classList.add('hidden');setTimeout(function(){b.style.display='none'},400);}
-  }
-</script>
 <!-- /Cookie Banner -->
 
 <button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-<script>
-  window.addEventListener('scroll',()=>{
-    const btn=document.getElementById('back-to-top');
-    if(btn) btn.classList.toggle('visible', window.scrollY > 400);
-  });
-</script>
 <!-- Telegram widget -->
 <div class="tg-widget" id="tg-widget">
   <div class="tg-bubble" id="tg-bubble">Message us — the bot replies instantly</div>
@@ -449,7 +393,7 @@
   </a>
 </div>
 
-<script src="/assets/analytics-events.js?v=26"></script>
-<script src="../assets/main.js?v=26"></script>
+<script src="/assets/analytics-events.js?v=30"></script>
+<script src="../assets/main.js?v=30"></script>
 </body>
 </html>

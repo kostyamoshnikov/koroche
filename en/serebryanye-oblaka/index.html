@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/style.css?v=26">
+<link rel="stylesheet" href="../../assets/style.css?v=30">
 <!-- Structured data -->
 <script type="application/ld+json">
 {
@@ -41,80 +41,41 @@
   "@graph": [
     {
       "@type": "CreativeWork",
-      "name": "Серебряные облака",
-      "description": "Танцперформанс с отсылками к работам Энди Уорхола — размышления о шрамах, физических и душевных.",
-      "genre": "Современный танец",
+      "name": "Silver Clouds",
+      "description": "A dance performance referencing the work of Andy Warhol — reflections on scars, physical and emotional.",
+      "genre": "Contemporary dance",
       "dateCreated": "2021",
       "creator": {
         "@type": "Person",
-        "name": "Юлия Бычкова"
+        "name": "Yulia Bychkova"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "{короче}",
+        "name": "{koroche}",
         "url": "https://koroche-dance.ru"
       },
       "isBasedOn": {
         "@type": "Person",
         "name": "Andy Warhol"
       },
-      "url": "https://koroche-dance.ru/serebryanye-oblaka/"
+      "url": "https://koroche-dance.ru/en/serebryanye-oblaka/"
     },
     {
       "@type": "DanceEvent",
-      "@id": "https://koroche-dance.ru/serebryanye-oblaka/#event",
-      "name": "Серебряные облака",
-      "description": "Танцперформанс с отсылками к работам Энди Уорхола — размышления о шрамах, физических и душевных.",
-      "url": "https://koroche-dance.ru/serebryanye-oblaka/",
+      "@id": "https://koroche-dance.ru/en/serebryanye-oblaka/#event",
+      "name": "Silver Clouds",
+      "description": "A dance performance referencing the work of Andy Warhol — reflections on scars, physical and emotional.",
+      "url": "https://koroche-dance.ru/en/serebryanye-oblaka/",
       "image": "https://koroche-dance.ru/assets/img/logo-black.jpg",
       "organizer": {
         "@type": "Organization",
-        "name": "{короче}",
+        "name": "{koroche}",
         "url": "https://koroche-dance.ru"
       }
     }
   ]
 }
 </script>
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110846274', 'ym');
-
-    ym(110846274, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/110846274" style="position:absolute; left:-9999px;" alt=""></div></noscript>
-<!-- /Yandex.Metrika counter -->
-
-<script type="text/javascript">
-// VK Ads pixel (top.mail.ru counter code) — VK_PIXEL_ID not yet
-// assigned, see Partners/Koroche/README.md ("Аналитика" section) and
-// _tools/Koroche-references.md. Left at 0 on purpose: without a real
-// id the counter would track nothing, so it's skipped until filled in.
-// (Comments live inside <script> so the i18n checker — which strips
-// script/style before scanning for translatable text — never sees
-// them; a plain HTML comment here would otherwise show up as a
-// missing EN translation on every page.)
-(function(){
-  var VK_PIXEL_ID = 0; // fill in after creating the pixel in ads.vk.com
-  if (!VK_PIXEL_ID) return;
-  var _tmr = window._tmr = window._tmr || [];
-  _tmr.push({id: VK_PIXEL_ID, type: "pageView", start: (new Date()).getTime()});
-  (function (d, w, id) {
-    if (d.getElementById(id)) return;
-    var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
-    ts.src = "https://top-fwz1.mail.ru/js/code.js";
-    var f = function () { var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s); };
-    if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
-  })(document, window, "topmailru-code");
-  window.KOROCHE_VK_PIXEL_ID = VK_PIXEL_ID;
-})();
-</script>
-
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -128,7 +89,8 @@
       <a href="../shows/">Archaeology of the Human</a>
       <a href="../yulia-bychkova/">Bychkova</a>
       <a href="../contacts/">Contact</a>
-    <a href="../serebryanye-oblaka/" class="lang-switch" style="opacity:.6">RU</a></div>
+    </div>
+    <a href="../../serebryanye-oblaka/" class="lang-switch" style="opacity:.6">RU</a>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </button>
@@ -140,7 +102,7 @@
   <div class="hero-mark" aria-hidden="true">{ }</div>
   <div class="wrap hero-content">
     <p class="eyebrow hero-eyebrow">Dance performance · 2021 · Archive</p>
-    <h1 style="font-size:clamp(38px,8vw,100px)">Silver <span class="bk">о</span>Clouds</h1>
+    <h1 style="font-size:clamp(26px,8vw,100px)">Silver <span class="bk">C</span>louds</h1>
     <p class="dir">Choreographer — <strong><a href="../yulia-bychkova/" style="color:inherit">Yulia Bychkova</a></strong></p>
     <div class="hero-btns">
       <a class="btn btn-line" href="../index.html#repertoire">Full repertoire</a>
@@ -220,9 +182,9 @@
       </div>
       <div>
         <h4>Social</h4>
-        <a href="https://vk.com/koroche_dance" target="_blank" rel="noopener">VK — @koroche_dance</a>
+        <a href="https://vk.com/koroche_dance?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_serebryanye-oblaka" target="_blank" rel="noopener">VK — @koroche_dance</a>
         <a href="https://t.me/koroche_dance" target="_blank" rel="noopener">Telegram — @koroche_dance</a>
-        <a href="https://aelita-production.ru" target="_blank" rel="noopener">Partner: AELITA PRODUCTION</a>
+        <a href="https://aelita-production.ru/en/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=en_serebryanye-oblaka" target="_blank" rel="noopener">Partner: AELITA PRODUCTION</a>
       </div>
     </div>
     <div class="requisites">
@@ -241,7 +203,7 @@
     <a href="../shows/" onclick="toggleMenu()">Archaeology of the Human</a>
     <a href="../yulia-bychkova/" onclick="toggleMenu()">Bychkova</a>
     <a href="../contacts/" onclick="toggleMenu()">Contact</a>
-  <a href="../serebryanye-oblaka/" class="lang-switch" onclick="toggleMenu()">RU — Russian version</a></nav>
+    <a href="../../serebryanye-oblaka/" class="lang-switch" onclick="toggleMenu()">RU — Russian version</a></nav>
   <div class="m-menu-foot">{koroche} · an unorganized dance company</div>
 </div>
 
@@ -264,9 +226,9 @@
 </div>
 <button id="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<script src="/assets/analytics-events.js?v=26"></script>
-<script src="../../assets/main.js?v=26"></script>
-<script src="../../assets/reviews.js?v=26"></script>
+<script src="/assets/analytics-events.js?v=30"></script>
+<script src="../../assets/main.js?v=30"></script>
+<script src="../../assets/reviews.js?v=30"></script>
 <script>KorocheReviews.init('serebryanye-oblaka');</script>
 </body>
 </html>
