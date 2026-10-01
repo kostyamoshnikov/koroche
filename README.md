@@ -7,6 +7,17 @@
 
 Чистый HTML/CSS/JS без сборки — что лежит в репозитории, то и деплоится.
 
+## Выкладка (koroche-pack-v42)
+
+Из корня пака, в том числе в Termux на телефоне (нужен только `python`):
+
+    export GITHUB_TOKEN=…  GITHUB_REPO=владелец/репозиторий  GITHUB_BRANCH=main
+    python3 _tools/deploy_site.py          # что изменится (ничего не меняет)
+    python3 _tools/deploy_site.py apply    # выложить одним коммитом
+
+Токен — fine-grained, Contents: Read and write только на репозиторий
+сайта. Удалить из репозитория файлы, которых нет в паке, — `apply --prune`.
+
 ## Проверка вёрстки (koroche-v43)
 
 - EN-сборка переписывает пути у `srcset`, `poster`, `<source>`, не только у `<img src>`.
