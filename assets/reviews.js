@@ -212,8 +212,8 @@
         '<div class="aud-stars-input" id="aud-stars-input">' +
           [1, 2, 3, 4, 5].map(function (i) { return '<span class="aud-star-btn" data-val="' + i + '">★</span>'; }).join('') +
         '</div>' +
-        '<input type="text" class="aud-input" id="aud-name" placeholder="' + t.namePh + '" maxlength="80">' +
-        '<textarea class="aud-textarea" id="aud-text" placeholder="' + t.textPh + '" maxlength="2000" rows="4"></textarea>' +
+        '<input type="text" class="aud-input ym-disable-keys" id="aud-name" placeholder="' + t.namePh + '" maxlength="80">' +
+        '<textarea class="aud-textarea ym-disable-keys" id="aud-text" placeholder="' + t.textPh + '" maxlength="2000" rows="4"></textarea>' +
         '<label class="aud-consent"><input type="checkbox" id="aud-consent"> ' + t.consent + '</label>' +
         '<label class="aud-consent"><input type="checkbox" id="aud-pd-consent"> ' + t.pdConsent + '</label>' +
         '<p class="aud-error" id="aud-error" style="display:none"></p>' +
@@ -278,6 +278,7 @@
 
       wrap.querySelector('.aud-review-form-fields').style.display = 'none';
       wrap.querySelector('#aud-thanks').style.display = 'block';
+      if (window.KOROCHE_track) window.KOROCHE_track('review_submit', { slug: slug, rating: rating });
     });
 
     return wrap;

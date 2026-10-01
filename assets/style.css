@@ -143,10 +143,14 @@ body > nav{
   background-color:#0A0A0A;
   z-index:150;
   display:flex;flex-direction:column;justify-content:center;padding:40px 32px;
-  opacity:0;pointer-events:none;transition:opacity .35s ease;
+  opacity:0;pointer-events:none;transition:opacity .35s ease,visibility 0s .35s;
+  visibility:hidden;
   overflow-y:auto;
 }
-.m-menu.open{opacity:1;pointer-events:auto}
+/* koroche-v43: закрытое меню — visibility:hidden. Раньше оно было только
+   прозрачным: Tab уводил фокус в невидимые пункты, скринридер читал их
+   поверх страницы. */
+.m-menu.open{opacity:1;pointer-events:auto;visibility:visible;transition:opacity .35s ease}
 .m-menu a{
   font-family:'Archivo Black',sans-serif;
   font-size:clamp(28px,9vw,44px);
@@ -422,7 +426,12 @@ footer a{color:#D8D8D2;text-decoration:none;display:block;margin-bottom:10px;fon
 @media(max-width:460px){.foot-grid{grid-template-columns:1fr}.foot-grid>div:first-child{grid-column:1}}
 
 /* ---------- reveal on scroll ---------- */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;animation:reveal-failsafe .01s 1.5s forwards}
+/* koroche-v43: страховка — если main.js не загрузился или упал, блоки
+   .reveal не остаются прозрачными навсегда (было: без скрипта пуста
+   почти вся страница). При рабочем скрипте ничего не меняет: он и так
+   показывает всё через 0,9 с. */
+@keyframes reveal-failsafe{to{opacity:1;transform:none}}
 .reveal.on{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero-eyebrow,.hero h1,.hero-tag,.hero-btns{animation:none;opacity:1}}
 
@@ -780,3 +789,19 @@ p.txt-quote{border-left:3px solid var(--blue);padding:2px 0 2px 18px;font-size:c
 .notify p.form-msg-error{color:var(--yellow)}
 .form-msg-error{color:var(--yellow)}
 @media(max-width:560px){.notify-fields{flex-direction:column}}
+
+/* koroche-v43: размер «под палец» на телефоне (WCAG 2.2, не меньше 24 px,
+   лучше 44). Ссылки подвала были высотой 13–21 px, переключатель языка в
+   шапке — 21×24, галочки в форме отзыва — 13×13. */
+@media(max-width:760px){
+  footer .foot-grid a{padding:6px 0;margin-bottom:4px}
+  .requisites a{display:inline-block;padding:8px 0}
+  .nav-in>.lang-switch{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+  .aud-consent input,.sub-consent input{width:20px;height:20px}
+  .stat-row .val a,.event h3 a{display:inline-block;padding:4px 0}
+  /* баннер cookies: ниже на ~50 px, чтобы меньше закрывать первый экран */
+  #cookie-banner{left:10px;right:10px;bottom:10px;padding:14px 16px}
+  #cookie-banner p{margin-bottom:12px}
+  .cookie-actions{flex-wrap:nowrap}
+  .cookie-btn{flex:1;padding:12px 10px}
+}

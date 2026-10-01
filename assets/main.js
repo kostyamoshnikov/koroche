@@ -1,8 +1,17 @@
 // Reveal on scroll
-const io = new IntersectionObserver(es => {
-  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-}, { threshold: .12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// koroche-v43: без IntersectionObserver (старые браузеры) раньше падал
+// весь main.js — меню, cookies, формы — а блоки .reveal так и оставались
+// прозрачными. Теперь блоки просто показываются сразу. Если main.js не
+// загрузился вовсе, их через 1,5 с показывает CSS (.reveal, анимация
+// reveal-failsafe в style.css).
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold: .12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('on'));
+}
 
 // Fallback
 setTimeout(() => {
@@ -11,7 +20,7 @@ setTimeout(() => {
 
 // Pause marquee animation off-screen (saves battery/CPU while scrolled away)
 const marqueeEls = document.querySelectorAll('.marquee-track');
-if (marqueeEls.length) {
+if (marqueeEls.length && 'IntersectionObserver' in window) {
   const marqueeIO = new IntersectionObserver(es => {
     es.forEach(e => e.target.classList.toggle('paused', !e.isIntersecting));
   }, { threshold: 0 });
@@ -19,7 +28,9 @@ if (marqueeEls.length) {
 }
 
 // Mobile menu
-let scrollY = 0;
+// koroche-v43: было `let scrollY` — глобальная переменная с тем же
+// именем, что window.scrollY, перекрывала его для всех скриптов страницы.
+let menuScrollY = 0;
 
 function toggleMenu(){
   const btn = document.querySelector('.burger');
@@ -30,9 +41,9 @@ function toggleMenu(){
   btn.setAttribute('aria-expanded', isOpen);
 
   if(isOpen){
-    scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+    menuScrollY = window.scrollY || document.documentElement.scrollTop || 0;
     document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
+    document.body.style.top = `-${menuScrollY}px`;
     document.body.style.left = '0';
     document.body.style.right = '0';
     document.body.style.width = '100%';
@@ -42,7 +53,7 @@ function toggleMenu(){
     document.body.style.left = '';
     document.body.style.right = '';
     document.body.style.width = '';
-    window.scrollTo(0, scrollY);
+    window.scrollTo(0, menuScrollY);
   }
 }
 
@@ -81,6 +92,9 @@ function loadTrackers(){
     k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
   })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=' + YM_ID, 'ym');
   ym(YM_ID, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+  // koroche-v44: параметр визита — открыт ли сайт как установленное
+  // приложение (PWA, /app/). Иначе не узнать, пользуется ли им кто-то.
+  try { if (window.matchMedia && matchMedia('(display-mode: standalone)').matches) ym(YM_ID, 'params', { app: 'standalone' }); } catch (e) {}
   if (VK_PIXEL_ID) {
     var _tmr = window._tmr = window._tmr || [];
     _tmr.push({id: VK_PIXEL_ID, type: "pageView", start: (new Date()).getTime()});
@@ -282,6 +296,7 @@ window.KOROCHE_subscribe = async function () {
   if (btn) btn.disabled = true;
   var sent = await window.KOROCHE_sendLead('Билеты — подписка на новые даты', { 'Имя': name, 'Телефон': phone, 'Email': email, 'Язык страницы': window.KOROCHE_isEn() ? 'EN' : 'RU' });
   if (btn) btn.disabled = false;
+  if (window.KOROCHE_track) window.KOROCHE_track(sent ? 'lead_subscribe_sent' : 'lead_subscribe_failed', { page: location.pathname });
   if (!sent) return err(KOROCHE_LEAD_FAIL.ru, KOROCHE_LEAD_FAIL.en);
   window.KOROCHE_formMessage(ok, '', '');
   ok.style.display = 'block';

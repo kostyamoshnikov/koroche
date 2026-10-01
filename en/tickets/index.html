@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../assets/style.css?v=30">
+<link rel="stylesheet" href="../../assets/style.css?v=32">
 <style>
   .notify-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap}
   .notify-tab{
@@ -115,11 +115,11 @@
 
     <div id="notifySite">
       <div class="notify-fields">
-        <input type="text" id="subName" placeholder="Your name *" aria-label="Name (required)" autocomplete="name" required>
-        <input type="tel" id="subPhone" inputmode="tel" autocomplete="tel" placeholder="Phone *" aria-label="Phone (required)" required>
+        <input type="text" id="subName" class="ym-disable-keys" placeholder="Your name *" aria-label="Name (required)" autocomplete="name" required>
+        <input type="tel" id="subPhone" class="ym-disable-keys" inputmode="tel" autocomplete="tel" placeholder="Phone *" aria-label="Phone (required)" required>
       </div>
       <div class="sub-form">
-        <input type="email" id="subEmail" placeholder="Email — optional" aria-label="Email (optional)" autocomplete="email">
+        <input type="email" id="subEmail" class="ym-disable-keys" placeholder="Email — optional" aria-label="Email (optional)" autocomplete="email">
         <!-- honeypot: invisible to people, bots that auto-fill every field trip it -->
         <input type="text" id="subWebsite" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;opacity:0" value="">
         <input type="hidden" id="subFormLoaded" value="">
@@ -239,7 +239,7 @@
   </a>
 </div>
 
-<script src="/assets/analytics-events.js?v=30"></script>
-<script src="../../assets/main.js?v=30"></script>
+<script src="/assets/analytics-events.js?v=32"></script>
+<script src="../../assets/main.js?v=32"></script>
 </body>
 </html>

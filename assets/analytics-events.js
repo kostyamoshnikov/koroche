@@ -113,11 +113,18 @@
     }
     ownTrack(goal, params);
   }
+  // koroche-v44: для скриптов страниц (форма подписки в main.js, отзывы
+  // в reviews.js) — цели об успешной отправке, а не только о клике.
+  window.KOROCHE_track = track;
 
   // Достаёт слаг страницы из внутренней ссылки вида /slug/ или /en/slug/.
   // Для внешних ссылок возвращает href как есть.
+  // koroche-v44: ссылки на сайте относительные (../gender/, shows/) —
+  // раньше в параметр slug уходил сам href как есть.
   function slugFromHref(href) {
-    var m = href.match(/^\/(?:en\/)?([a-z0-9-]+)\/?(?:[?#].*)?$/);
+    var path = href;
+    try { var u = new URL(href, location.href); if (u.origin === location.origin) path = u.pathname; } catch (e) {}
+    var m = path.match(/^\/(?:en\/)?([a-z0-9-]+)\/?(?:[?#].*)?$/);
     return m ? m[1] : href;
   }
 
@@ -139,6 +146,17 @@
     }
     if (href.indexOf('t.me/') !== -1) {
       track(href.indexOf('_bot') !== -1 ? 'telegram_bot_click' : 'telegram_channel_click', { link_url: href });
+      return;
+    }
+    // koroche-v44: покупка билета и переходы на страницы AELITA —
+    // главная конверсия сайта, раньше считалась только как «внешняя
+    // ссылка» без цели.
+    if (/aelita-production\.ru\/(en\/)?tickets-buy/.test(href)) {
+      track('ticket_buy_click', { link_url: href, page: location.pathname });
+      return;
+    }
+    if (/aelita-production\.ru/.test(href)) {
+      track('aelita_site_click', { link_url: href, page: location.pathname });
       return;
     }
     if (/\/tickets\/?($|[?#])/.test(href)) {
@@ -177,14 +195,16 @@
   // 'subscribeEmail' сохраняет прежнее имя цели lead_email_subscribe_click,
   // чтобы не сломать уже настроенные цели в Метрике; остальные обработчики
   // идут под общим form_submit_click.
-  var FORM_TRIGGERS = ['subscribeEmail', 'subscribe', 'handleForm', 'handleSubmit', 'joinClub'];
+  // koroche-v44: с koroche-v41 кнопка подписки вызывает KOROCHE_subscribe()
+  // — цель lead_email_subscribe_click перестала срабатывать совсем.
+  var FORM_TRIGGERS = ['KOROCHE_subscribe', 'subscribeEmail', 'subscribe', 'handleForm', 'handleSubmit', 'joinClub'];
   document.addEventListener('click', function (e) {
     const el = e.target.closest('[onclick]');
     if (!el) return;
     const onclick = (el.getAttribute('onclick') || '').trim();
     const matched = FORM_TRIGGERS.filter(function (fn) { return onclick.indexOf(fn + '(') === 0; })[0];
     if (!matched) return;
-    if (matched === 'subscribeEmail') {
+    if (matched === 'subscribeEmail' || matched === 'KOROCHE_subscribe') {
       track('lead_email_subscribe_click', { page: location.pathname });
     } else {
       track('form_submit_click', { form_handler: matched, page: location.pathname });
