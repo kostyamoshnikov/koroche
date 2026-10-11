@@ -33,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=32">
+<link rel="stylesheet" href="../assets/style.css?v=34">
 <style>
   /* ── Hero видео (только на этой странице) ── */
   .hero{background:var(--ink);overflow:hidden}
@@ -61,7 +61,7 @@
     display:flex;align-items:center;gap:8px;
     background:rgba(10,10,10,.6);backdrop-filter:blur(4px);
     border:2px solid var(--paper);color:var(--paper);
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:.05em;text-transform:uppercase;
     padding:10px 16px;cursor:pointer;transition:all .25s ease;
   }
   @media(hover:hover){.teaser-sound-btn:hover{background:var(--blue);border-color:var(--blue)}}
@@ -143,7 +143,7 @@
   </button>
   <div class="wrap hero-content">
     <p class="eyebrow hero-eyebrow">Танцевальный спектакль <span class="age">12+</span></p>
-    <h1 style="font-size:clamp(26px,6.4vw,80px)">Инстр<span class="bk">у</span>кция для начинающих странников</h1>
+    <h1 style="font-size:clamp(1.625rem,6.4vw,5rem)">Инстр<span class="bk">у</span>кция для начинающих странников</h1>
     <p class="dir">Режиссёры — <strong><a href="../yulia-bychkova/">Юлия Бычкова</a></strong> и <strong>Елена Иноземцева</strong></p>
     <p class="note">Совместный проект танцевальных компаний «Короче» и «Забава» (Калуга).</p>
     <div class="hero-btns">
@@ -159,7 +159,7 @@
       <h2>О проекте</h2>
       <span class="sec-num mono">{ 01 / ЗАМЫСЕЛ }</span>
     </div>
-    <p class="reveal" style="font-size:19px;color:#2A2824;max-width:64ch;line-height:1.75">Совместный проект танцевальных компаний «Короче» и «Забава» — флагман танцевальной жизни Калуги. Спектакль о пути, выборе и том, что значит начать — для тех, кто в пути, кто уже прошёл часть дороги, и тех, кто только собирается идти. Постановка сделана в соавторстве режиссёров Юлии Бычковой («Короче») и Елены Иноземцевой («Забава»).</p>
+    <p class="reveal" style="font-size:1.1875rem;color:#2A2824;max-width:64ch;line-height:1.75">Совместный проект танцевальных компаний «Короче» и «Забава» — флагман танцевальной жизни Калуги. Спектакль о пути, выборе и том, что значит начать — для тех, кто в пути, кто уже прошёл часть дороги, и тех, кто только собирается идти. Постановка сделана в соавторстве режиссёров Юлии Бычковой («Короче») и Елены Иноземцевой («Забава»).</p>
   </div>
 </section>
 
@@ -287,7 +287,7 @@
 
 <!-- Cookie Banner -->
 <div id="cookie-banner">
-  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
+  <p>Счётчики включаются, только если вы нажмёте «Принять». Подробнее — в <a href="../cookies/">политике cookies</a> и <a href="../privacy/">политике конфиденциальности</a>.</p>
   <div class="cookie-actions">
     <button class="cookie-btn cookie-btn-more" onclick="window.location.href='../cookies/'">Подробнее</button>
     <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
@@ -304,9 +304,9 @@
   </a>
 </div>
 
-<script src="/assets/analytics-events.js?v=32"></script>
-<script src="../assets/main.js?v=32"></script>
-<script src="../assets/reviews.js?v=32"></script>
+<script src="/assets/analytics-events.js?v=34"></script>
+<script src="../assets/main.js?v=34"></script>
+<script src="../assets/reviews.js?v=34"></script>
 <script>KorocheReviews.init('instruction');</script>
 </body>
 </html>

@@ -15,13 +15,13 @@ a{color:inherit}
 .wrap{max-width:920px;margin:0 auto;padding:0 20px}
 nav{padding:18px 0;border-bottom:1px solid var(--line)}
 .nav-in{display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;font-size:18px;text-decoration:none}
+.logo{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;font-size:1.125rem;text-decoration:none}
 .logo .bk{color:var(--blue)}
-.logo-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);letter-spacing:.03em}
+.logo-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.6875rem;color:var(--grey);letter-spacing:.03em}
 main{padding:40px 0 80px}
-h1{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:22px;margin-bottom:24px}
-h2{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:15px;letter-spacing:.02em;margin:36px 0 14px}
-.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.03em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;transition:all .2s;display:inline-block}
+h1{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:1.375rem;margin-bottom:24px}
+h2{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:0.9375rem;letter-spacing:.02em;margin:36px 0 14px}
+.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.75rem;letter-spacing:.03em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;transition:all .2s;display:inline-block}
 .btn-blue{background:var(--blue);color:var(--paper)}
 .btn-blue:hover{opacity:.85}
 .btn-blue:disabled{opacity:.4;cursor:default}
@@ -31,49 +31,49 @@ h2{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-tra
 .btn-green:hover{opacity:.85}
 .btn-red{background:none;border:1px solid var(--red);color:var(--red)}
 .btn-red:hover{background:var(--red);color:var(--paper)}
-.btn-sm{padding:8px 14px;font-size:11px}
+.btn-sm{padding:8px 14px;font-size:0.6875rem}
 
 #loginScreen{max-width:340px;margin:60px auto 0}
-#loginScreen input{width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--paper);font-family:'Inter',sans-serif;font-size:15px;margin-bottom:12px}
+#loginScreen input{width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--paper);font-family:'Inter',sans-serif;font-size:0.9375rem;margin-bottom:12px}
 #loginScreen input:focus{outline:none;border-color:var(--blue)}
-#loginError{color:var(--red);font-size:13px;margin-bottom:12px;min-height:18px}
+#loginError{color:var(--red);font-size:0.8125rem;margin-bottom:12px;min-height:18px}
 .pw-row{position:relative}
-.pw-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--grey);padding:4px}
+.pw-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:0.6875rem;color:var(--grey);padding:4px}
 
 .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);margin-bottom:8px}
 .stat-card{background:var(--paper);padding:20px 16px}
-.stat-card .n{font-family:'Archivo Black','Arial Black',sans-serif;font-size:clamp(22px,4vw,30px);line-height:1}
-.stat-card .l{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:var(--grey);text-transform:uppercase;margin-top:6px}
+.stat-card .n{font-family:'Archivo Black','Arial Black',sans-serif;font-size:clamp(1.375rem,4vw,1.875rem);line-height:1}
+.stat-card .l{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.65625rem;color:var(--grey);text-transform:uppercase;margin-top:6px}
 .link-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px}
-.link-row a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;color:var(--blue);text-decoration:underline}
+.link-row a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.75rem;color:var(--blue);text-decoration:underline}
 
 .review-item{border:1px solid var(--line);padding:18px 20px;margin-bottom:10px}
 .review-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:8px;flex-wrap:wrap}
-.review-meta{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey)}
+.review-meta{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.6875rem;color:var(--grey)}
 .review-stars{color:var(--yellow);letter-spacing:2px;text-shadow:0 0 0 var(--ink);-webkit-text-stroke:.5px var(--ink)}
-.review-status{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;text-transform:uppercase;padding:3px 8px;letter-spacing:.03em}
+.review-status{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.625rem;text-transform:uppercase;padding:3px 8px;letter-spacing:.03em}
 .status-pending{background:var(--yellow);color:var(--ink)}
 .status-approved{background:var(--green);color:var(--paper)}
 .status-rejected{background:var(--red);color:var(--paper)}
-.review-text{font-size:14px;line-height:1.6;margin-bottom:12px;white-space:pre-wrap}
+.review-text{font-size:0.875rem;line-height:1.6;margin-bottom:12px;white-space:pre-wrap}
 .review-actions{display:flex;gap:10px}
-.empty{color:var(--grey);font-size:14px;padding:20px 0}
+.empty{color:var(--grey);font-size:0.875rem;padding:20px 0}
 
 .edit-form{display:flex;flex-direction:column;gap:10px;max-width:560px}
-.edit-form label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:var(--grey);text-transform:uppercase}
-.edit-form input,.edit-form textarea{padding:12px 14px;border:1px solid var(--line);background:var(--paper);font-family:'Inter',sans-serif;font-size:14px;width:100%}
+.edit-form label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.6875rem;color:var(--grey);text-transform:uppercase}
+.edit-form input,.edit-form textarea{padding:12px 14px;border:1px solid var(--line);background:var(--paper);font-family:'Inter',sans-serif;font-size:0.875rem;width:100%}
 .edit-form textarea{min-height:80px;resize:vertical}
 .edit-form input:focus,.edit-form textarea:focus{outline:none;border-color:var(--blue)}
-#editPreview{font-size:13px;background:#F0F0EC;padding:14px;margin-top:4px;display:none;line-height:1.6}
+#editPreview{font-size:0.8125rem;background:#F0F0EC;padding:14px;margin-top:4px;display:none;line-height:1.6}
 #editPreview mark{background:var(--yellow)}
-#editMsg{font-size:13px;margin-top:8px;min-height:18px}
+#editMsg{font-size:0.8125rem;margin-top:8px;min-height:18px}
 #editMsg.ok{color:var(--green)}
 #editMsg.err{color:var(--red)}
 
 #loadingState,#errorState{padding:60px 0;text-align:center;color:var(--grey)}
 #errorState{display:none}
 footer{padding:24px 0;border-top:1px solid var(--line);text-align:center;margin-top:60px}
-footer p{color:var(--grey);font-size:12px}
+footer p{color:var(--grey);font-size:0.75rem}
 @media(max-width:600px){.stat-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
@@ -87,7 +87,7 @@ footer p{color:var(--grey);font-size:12px}
 <main class="wrap">
 
 <div id="loginScreen">
-  <h1 style="font-size:18px">Вход</h1>
+  <h1 style="font-size:1.125rem">Вход</h1>
   <div class="pw-row">
     <input type="password" id="pwInput" placeholder="Пароль" autocomplete="current-password">
     <button class="pw-toggle" id="pwToggle" type="button">Показать</button>
@@ -119,7 +119,7 @@ footer p{color:var(--grey);font-size:12px}
     <div id="reviewsList"></div>
 
     <h2>Правка текста сайта</h2>
-    <p style="color:var(--grey);font-size:13px;margin-bottom:14px">Раздел страницы (например, <code>gogol</code> или <code>shows</code>), точный текст для замены — он должен встречаться на странице ровно один раз. Юридические и служебные страницы не редактируются отсюда.</p>
+    <p style="color:var(--grey);font-size:0.8125rem;margin-bottom:14px">Раздел страницы (например, <code>gogol</code> или <code>shows</code>), точный текст для замены — он должен встречаться на странице ровно один раз. Юридические и служебные страницы не редактируются отсюда.</p>
     <div class="edit-form">
       <label for="editPage">Раздел (slug)</label>
       <input type="text" id="editPage" placeholder="gogol">

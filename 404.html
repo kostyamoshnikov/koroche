@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-page="404">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,20 +15,20 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 nav{padding:18px 0;border-bottom:1px solid rgba(10,10,10,.12)}
 .nav-in{display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;font-size:20px}
+.logo{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;font-size:1.25rem}
 .logo .bk{color:var(--blue)}
 main{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 24px}
-.code{font-family:'Archivo Black','Arial Black',sans-serif;font-size:clamp(80px,15vw,160px);color:rgba(30,46,255,.1);line-height:1;margin-bottom:-20px}
-h1{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(18px,3vw,26px);margin-bottom:20px}
-p{color:var(--grey);font-size:15px;margin-bottom:40px;max-width:40ch;margin-left:auto;margin-right:auto}
+.code{font-family:'Archivo Black','Arial Black',sans-serif;font-size:clamp(5rem,15vw,10rem);color:rgba(30,46,255,.1);line-height:1;margin-bottom:-20px}
+h1{font-family:'Archivo Black','Arial Black',sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(1.125rem,3vw,1.625rem);margin-bottom:20px}
+p{color:var(--grey);font-size:0.9375rem;margin-bottom:40px;max-width:40ch;margin-left:auto;margin-right:auto}
 .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.03em;text-transform:uppercase;padding:14px 26px;transition:all .25s}
+.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:0.75rem;letter-spacing:.03em;text-transform:uppercase;padding:14px 26px;transition:all .25s}
 .btn-blue{background:var(--blue);color:var(--paper)}
 @media(hover:hover){.btn-blue:hover{opacity:.85}}
 .btn-outline{border:1px solid rgba(10,10,10,.25);color:var(--ink)}
 @media(hover:hover){.btn-outline:hover{border-color:var(--blue);color:var(--blue)}}
 footer{padding:24px 0;border-top:1px solid rgba(10,10,10,.12);text-align:center}
-footer p{color:var(--grey);font-size:12px}
+footer p{color:var(--grey);font-size:0.75rem}
 </style>
 </head>
 <body>
@@ -55,8 +55,8 @@ footer p{color:var(--grey);font-size:12px}
 
 <!-- koroche-v44: счётчик и цели — как на остальных страницах (Метрика грузится
      только при согласии на cookies, данном на любой странице сайта). -->
-<script src="/assets/analytics-events.js?v=32"></script>
-<script src="/assets/main.js?v=32"></script>
+<script src="/assets/analytics-events.js?v=34"></script>
+<script src="/assets/main.js?v=34"></script>
 <script>
   // Автоматический редирект через 10 секунд
   setTimeout(()=>{ window.location.href='/'; }, 10000);

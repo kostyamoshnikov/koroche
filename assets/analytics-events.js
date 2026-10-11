@@ -221,4 +221,28 @@
       }
     }, 0);
   }, true);
+  // koroche-pack-v45 — перенос из AELITA pack-v540.
+  // page_not_found: GitHub Pages отдаёт 404.html по любому несуществующему
+  // адресу — в параметре адрес, по которому не попали (битые ссылки, старые
+  // QR и посты), и откуда пришли.
+  function notFound() {
+    if (document.documentElement.getAttribute('data-page') !== '404') return;
+    track('page_not_found', { url: location.pathname + location.search, referrer: document.referrer || '' });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', notFound); else notFound();
+
+  // form_start: первый ввод в форму (подписка, отзыв) — один раз на форму за
+  // визит страницы, без содержимого полей. Вместе с lead_subscribe_sent и
+  // review_submit даёт долю брошенных форм.
+  var formStarted = {};
+  document.addEventListener('input', function (e) {
+    var el = e.target;
+    if (!el || !/^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName)) return;
+    if (el.type === 'hidden' || el.type === 'checkbox' || el.type === 'radio' || el.getAttribute('aria-hidden') === 'true') return;
+    var box = el.closest('form, #notifySite, .aud-review-form, [id]');
+    var key = box ? (box.id || box.className || box.tagName) : 'page';
+    if (formStarted[key]) return;
+    formStarted[key] = true;
+    track('form_start', { form: key, page: location.pathname });
+  }, true);
 })();

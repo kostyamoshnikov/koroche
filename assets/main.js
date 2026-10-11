@@ -314,20 +314,49 @@ window.KOROCHE_subscribe = async function () {
 // стереть и ввести зарубежный номер. Пока в поле только префикс, value
 // отдаёт пустую строку — проверки форм видят «не заполнено»; запись ''
 // (сброс после отправки) возвращает префикс.
+// koroche-pack-v44 — адаптировано из Site/assets/phone-prefix.js AELITA
+// pack-v541: кто по привычке набирал номер целиком поверх готового «+7 »
+// («+79001112233», «8 900…», вставка «+7 (900) 111-22-33»), получал
+// «+7 +79001112233» / «+7 89001112233» — проверка «≥ 10 цифр» такой номер
+// пропускала, и команде он приходил искажённым. Теперь лишний «+» и лишняя
+// 7/8 перед 10 цифрами убираются; номер без «+7 » в начале (зарубежный) не
+// трогается. Для нативной проверки required — setCustomValidity.
 (function () {
   if (typeof HTMLInputElement === 'undefined') return;
   var PREFIX = '+7 ';
   var desc = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value');
+  var en = (document.documentElement.lang || '').indexOf('en') === 0;
   function raw(el) { return desc.get.call(el); }
+  function syncValidity(el) {
+    if (!el.setCustomValidity) return;
+    var bare = raw(el) === PREFIX || raw(el) === PREFIX.trim();
+    el.setCustomValidity(bare && el.required ? (en ? 'Enter your phone number' : 'Введите номер телефона') : '');
+  }
   function enhance(el) {
     if (el.__korochePhone) return;
     el.__korochePhone = true;
     Object.defineProperty(el, 'value', {
       configurable: true,
       get: function () { var v = raw(this); return (v === PREFIX || v === PREFIX.trim()) ? '' : v; },
-      set: function (v) { desc.set.call(this, (v === '' || v == null) ? PREFIX : v); },
+      set: function (v) { desc.set.call(this, (v === '' || v == null) ? PREFIX : v); syncValidity(this); },
     });
     if (/^\s*\+?7?\s*$/.test(raw(el))) desc.set.call(el, PREFIX);
+    syncValidity(el);
+    el.addEventListener('input', function () {
+      var v = raw(el);
+      if (v.indexOf(PREFIX) === 0) {
+        var rest = v.slice(PREFIX.length);
+        var digits = rest.replace(/\D/g, '');
+        var fixed = null;
+        if (rest.indexOf('+') !== -1) fixed = digits.length === 11 && /^[78]/.test(digits) ? digits.slice(1) : rest.replace(/\+/g, '');
+        else if (digits.length === 11 && /^[78]/.test(digits)) fixed = digits.slice(1);
+        if (fixed !== null) {
+          desc.set.call(el, PREFIX + fixed);
+          try { el.setSelectionRange(raw(el).length, raw(el).length); } catch (e) {}
+        }
+      }
+      syncValidity(el);
+    });
     el.addEventListener('focus', function () {
       var v = raw(el);
       if (v === PREFIX) setTimeout(function () { try { el.setSelectionRange(v.length, v.length); } catch (e) {} }, 0);

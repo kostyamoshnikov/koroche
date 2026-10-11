@@ -33,17 +33,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=32">
+<link rel="stylesheet" href="../assets/style.css?v=34">
 <style>
   .notify-tabs{display:flex;justify-content:center;gap:8px;margin-bottom:28px;flex-wrap:wrap}
   .notify-tab{
     background:transparent;border:2px solid rgba(250,250,247,.35);color:rgba(250,250,247,.7);
-    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.03em;text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:.03em;text-transform:uppercase;
     padding:10px 18px;cursor:pointer;transition:all .2s ease;
   }
   .notify-tab.active{border-color:var(--paper);color:var(--paper)}
   @media(hover:hover){.notify-tab:hover{border-color:var(--paper);color:var(--paper)}}
-  .notify-bot-note{color:#B4B4AE;font-size:13px;margin-top:14px}
+  .notify-bot-note{color:#B4B4AE;font-size:0.8125rem;margin-top:14px}
 </style>
 </head>
 <body>
@@ -71,30 +71,30 @@
   <div class="hero-mark" aria-hidden="true">{ }</div>
   <div class="wrap hero-content">
     <p class="eyebrow hero-eyebrow">расписание</p>
-    <h1 style="font-size:clamp(26px,8vw,100px)">Аф<span class="bk">и</span>ша и билеты</h1>
+    <h1 style="font-size:clamp(1.625rem,8vw,6.25rem)">Аф<span class="bk">и</span>ша и билеты</h1>
   </div>
 </div>
 
 <section style="padding-top:20px">
   <div class="wrap">
-    <div class="filters reveal">
-      <button class="filter-btn active" onclick="filterEvents('all',this)">Все города</button>
-      <button class="filter-btn" onclick="filterEvents('kaluga',this)">Калуга</button>
-      <button class="filter-btn" onclick="filterEvents('spb',this)">Санкт-Петербург</button>
-    </div>
 
     <div id="events-list" class="reveal">
-      <div class="event" data-city="kaluga">
-        <div class="ev-date">10.10<small>сб · 18:00</small></div>
+      <div class="no-events">
+        <p>Ближайших показов пока нет. Новые даты объявим здесь, в Telegram-боте и в соцсетях компании.</p>
+        <a class="btn btn-solid" href="#subscribe">Узнать о новых датах</a>
+      </div>
+
+      <h2 class="past-title">Прошедшие показы</h2>
+      <div class="event event-past" data-city="kaluga">
+        <div class="ev-date">10.10<small>2026 · прошёл</small></div>
         <div class="ev-info">
           <h3><a href="https://aelita-production.ru/bred/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">{И весь этот бред тоже}</a></h3>
-          <p>Танц-перформанс Антона Вдовиченко · 30 минут · 18+</p>
-          <p>После показа — обсуждение с Антоном Вдовиченко</p>
-          <p>Дом архитектора, Калуга · 1000 ₽</p>
+          <p>Танц-перформанс Антона Вдовиченко · Дом архитектора, Калуга</p>
+          <p>Были на показе? Расскажите, что запомнилось, — отзыв появится на странице спектакля.</p>
           <p class="fest">в программе «Короче» · спектакль AELITA PRODUCTION</p>
         </div>
         <div class="ev-actions">
-          <a class="btn btn-solid" href="https://aelita-production.ru/tickets-buy/?performance=bred-2026-10-10&amp;utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">Купить билет</a>
+          <a class="btn btn-solid" href="https://aelita-production.ru/bred/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets#audience-reviews" target="_blank" rel="noopener">Оставить отзыв</a>
           <a class="btn btn-line" href="https://aelita-production.ru/bred/?utm_source=koroche_site&amp;utm_medium=referral&amp;utm_campaign=site&amp;utm_content=tickets" target="_blank" rel="noopener">О спектакле</a>
         </div>
       </div>
@@ -213,7 +213,7 @@
 
 <!-- Cookie Banner -->
 <div id="cookie-banner">
-  <p>Мы используем cookies для аналитики и улучшения сайта. Продолжая использовать сайт, вы соглашаетесь с <a href="../cookies/">политикой cookies</a> и <a href="../privacy/">политикой конфиденциальности</a>.</p>
+  <p>Счётчики включаются, только если вы нажмёте «Принять». Подробнее — в <a href="../cookies/">политике cookies</a> и <a href="../privacy/">политике конфиденциальности</a>.</p>
   <div class="cookie-actions">
     <button class="cookie-btn cookie-btn-more" onclick="window.location.href='../cookies/'">Подробнее</button>
     <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Принять</button>
@@ -222,13 +222,6 @@
 <button id="back-to-top" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  function filterEvents(city, btn){
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.event').forEach(e => {
-      e.style.display = (city === 'all' || e.dataset.city === city) ? 'grid' : 'none';
-    });
-  }
 </script>
 
 <!-- Telegram виджет -->
@@ -240,7 +233,7 @@
   </a>
 </div>
 
-<script src="/assets/analytics-events.js?v=32"></script>
-<script src="../assets/main.js?v=32"></script>
+<script src="/assets/analytics-events.js?v=34"></script>
+<script src="../assets/main.js?v=34"></script>
 </body>
 </html>
